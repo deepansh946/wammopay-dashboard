@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import DB from './config/db';
 import middleware from './middleware/index';
 import routes from './routes/index';
 
@@ -20,11 +19,13 @@ app.use(function(req, res, next) {
   next();
 });
 
-const PORT = 3000;
+const PORT = 3001;
 
 middleware(app);
 
 routes(app);
+
+app.use(express.static('public'));
 
 app.listen(PORT, error => {
   if (error) {

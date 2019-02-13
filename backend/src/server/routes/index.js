@@ -1,11 +1,9 @@
-//This file contain the all the routes of the app
-
-// import UserRoutes from '../modules/user/routes';
+import UserRoutes from './user';
 // import TweetRoutes from '../modules/tweets/routes';
 
 export default app => {
   //all the routes
-  //   app.use('/api/user', UserRoutes);
+  app.use('/api/user', UserRoutes);
   //   app.use('/api/tweet', TweetRoutes);
 
   app.get('/', (req, res) => {

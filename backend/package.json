@@ -7,15 +7,20 @@
     "dev": "nodemon --exec babel-node src/server/index.js"
   },
   "dependencies": {
-    "dotenv": "^6.2.0",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "cross-env": "^5.2.0",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "helmet": "^3.15.1",
+    "jsonwebtoken": "^8.4.0",
     "morgan": "^1.9.1",
     "mssql": "^4.3.1",
-    "jsonwebtoken": "^8.4.0"
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-jss": "^8.6.1",
+    "reload": "^2.4.0",
+    "tedious": "^5.0.3"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
