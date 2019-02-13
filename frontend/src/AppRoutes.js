@@ -4,6 +4,7 @@ import { Switch } from 'react-router-dom';
 
 import Home from './containers/Home';
 import SignIn from './containers/SignIn/index';
+import SignUp from './containers/SignUp';
 
 class AppRoutes extends Component {
   state = {};
@@ -13,6 +14,7 @@ class AppRoutes extends Component {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/sign-in" exact component={SignIn} />
+        <Route path="/sign-up" exact component={SignUp} />
       </Switch>
     );
   }

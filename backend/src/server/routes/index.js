@@ -8,6 +8,10 @@ export default app => {
   //   app.use('/api/user', UserRoutes);
   //   app.use('/api/tweet', TweetRoutes);
 
+  app.get('/', (req, res) => {
+    res.send('Hello World');
+  });
+
   //not found routes
   app.use(function(req, res, next) {
     res.status(404).json({
