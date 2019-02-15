@@ -3,7 +3,18 @@ import React, { Component } from 'react';
 import './style.css';
 
 export default class SignIn extends Component {
-  state = {};
+  state = { users: [] };
+
+  componentDidMount() {
+    fetch('/api/user/allUsers')
+      .then(res => {
+        console.log(res);
+        this.setState({ users: res });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   render() {
     return (

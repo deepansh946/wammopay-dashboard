@@ -9,26 +9,22 @@ export default class SignUp extends Component {
     password: ''
   };
 
-  onChangeEmail = e => {
-    const value = e.target.value;
-    console.log(value);
-    this.setState({ email: value });
-    console.log(this.state.email);
-  };
+  onChangeEmail(e) {
+    // const { field, value } = e.target;
+    // console.log(field, value);
+    this.setState({ email: e.target.value });
+  }
 
   onChangePassword(e) {
     this.setState({ password: e.target.value });
-    console.log(this.state);
   }
 
   onChangeNumber(e) {
     this.setState({ mobileNumber: e.target.value });
-    console.log(this.state);
   }
 
   onChangeName(e) {
     this.setState({ fullName: e.target.value });
-    console.log(this.state);
   }
 
   login() {
@@ -36,7 +32,7 @@ export default class SignUp extends Component {
     const { email, fullName, mobileNumber, password } = this.state;
     Axios({
       method: 'POST',
-      url: '',
+      url: '/api/users/',
       data: {
         email,
         fullName,

@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { getList } from './user';
+import { insertUser } from './user';
 
 const routes = Router();
 
-routes.get('/allUsers', getList);
+routes.post('/', insertUser);
 
 export default routes;

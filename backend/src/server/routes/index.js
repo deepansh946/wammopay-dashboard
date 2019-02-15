@@ -3,7 +3,7 @@ import UserRoutes from './user';
 
 export default app => {
   //all the routes
-  app.use('/api/user', UserRoutes);
+  app.use('/api/users', UserRoutes);
   //   app.use('/api/tweet', TweetRoutes);
 
   app.get('/', (req, res) => {

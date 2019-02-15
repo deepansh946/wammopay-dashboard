@@ -1,22 +1,20 @@
 import sql from 'mssql';
 import { dbConfig } from './index';
 
-export const executeSql = (query, callback) => {
-  const conn = new sql.connect(dbConfig);
-  console.log('Database Connection Established');
-
-  conn.then(() => {
-    const req = new sql.Request();
-    req
-      .query(query)
-      .then(res => {
-        console.log(res);
-        callback(res);
+export async function executeSql(query) {
+  return new Promise((resolve, reject) => {
+    new sql.ConnectionPool(dbConfig)
+      .connect()
+      .then(pool => {
+        return pool.request().query(query);
+      })
+      .then(result => {
+        resolve(result);
+        sql.close();
       })
       .catch(err => {
-        console.log(err);
-        callback(null, err);
+        reject(err);
+        sql.close();
       });
   });
-  // console.log(res);
-};
+}
