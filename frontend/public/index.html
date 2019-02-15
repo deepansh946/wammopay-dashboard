@@ -60,6 +60,41 @@
     <script src="assets/js/plugins-js/chart-js/chart-demo.js"></script>
     <!-- ======== /. Only needs these plugins for the run this page ======== -->
 
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta
+      name="google-signin-client_id"
+      content="934398712916-12m9poigpmaa5aivk5gjfq4i882oqq8u.apps.googleusercontent.com"
+    />
+
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '799512287069582',
+          cookie: true,
+          xfbml: true,
+          version: 'v3.2'
+        });
+
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, 'script', 'facebook-jssdk');
+    </script>
+
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+      api_key:   "81myn27q2ct1pe"
+    </script>
+
     <script>
       $('.toggle').on('click', function() {
         $('.container-login')

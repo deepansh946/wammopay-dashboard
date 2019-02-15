@@ -7552,7 +7552,7 @@ section#demo {
 .card-login-area .title img {
 	margin-bottom: 15px;
 }
-.card-login-area form {
+.card-login-area {
 	padding: 20px 40px 40px 40px;
 }
 .card-login-area .input-container {

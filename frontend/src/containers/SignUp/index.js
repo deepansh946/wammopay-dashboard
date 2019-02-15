@@ -29,7 +29,8 @@ export default class SignUp extends Component {
     this.setState({ fullName: e.target.value });
   };
 
-  login = () => {
+  login = e => {
+    e.preventDefault();
     console.log('Login Called');
     const { email, fullName, mobileNumber, password } = this.state;
     console.log(email, fullName, mobileNumber, password);
@@ -47,8 +48,8 @@ export default class SignUp extends Component {
         console.log(res.data);
         const { statusCode } = res.data;
         if (statusCode === 200) {
-          this.setState({ isLogin: true });
-          this.props.history.push('/');
+          // this.setState({ isLogin: true });
+          this.props.history.push('/sign-in');
         } else {
           alert('User Registration Failed. Please try again');
         }
@@ -70,62 +71,60 @@ export default class SignUp extends Component {
           {/* Card Area  */}
           <div className="card-login-area">
             <h1 className="title text-center">Sign Up</h1>
-            <form>
-              <div className="input-container">
-                <label htmlFor="req">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  value={email}
-                  onChange={this.onChangeEmail}
-                  name="email"
-                />
-              </div>
-              <div className="input-container">
-                <label htmlFor="req">Full Name</label>
-                <input
-                  type="text"
-                  id="fName"
-                  required
-                  onChange={e => this.onChangeName(e)}
-                  value={fullName}
-                />
-              </div>
-              <div className="input-container">
-                <label htmlFor="req">Mobile Number</label>
-                <input
-                  type="number"
-                  id="mobile"
-                  required
-                  value={mobileNumber}
-                  onChange={e => this.onChangeNumber(e)}
-                />
-              </div>
-              <div className="input-container">
-                <label htmlFor="pass">Password</label>
-                <input
-                  type="password"
-                  id="pass"
-                  name="password"
-                  required
-                  value={password}
-                  onChange={e => this.onChangePassword(e)}
-                />
-              </div>
-              <div className="input-container">
-                <label htmlFor="cPass">Confirm Password</label>
-                <input type="password" id="cPass" name="password" required />
-              </div>
-              <div className="button-container">
-                <button>
-                  <span onClick={this.login}>Sign Up</span>
-                </button>
-              </div>
-              <div className="not-account">
-                Already have an account? <a href="/sign-in">Sign In Here</a>
-              </div>
-            </form>
+            <div className="input-container">
+              <label htmlFor="req">Email</label>
+              <input
+                type="email"
+                id="email"
+                required
+                value={email}
+                onChange={this.onChangeEmail}
+                name="email"
+              />
+            </div>
+            <div className="input-container">
+              <label htmlFor="req">Full Name</label>
+              <input
+                type="text"
+                id="fName"
+                required
+                onChange={e => this.onChangeName(e)}
+                value={fullName}
+              />
+            </div>
+            <div className="input-container">
+              <label htmlFor="req">Mobile Number</label>
+              <input
+                type="number"
+                id="mobile"
+                required
+                value={mobileNumber}
+                onChange={e => this.onChangeNumber(e)}
+              />
+            </div>
+            <div className="input-container">
+              <label htmlFor="pass">Password</label>
+              <input
+                type="password"
+                id="pass"
+                name="password"
+                required
+                value={password}
+                onChange={e => this.onChangePassword(e)}
+              />
+            </div>
+            <div className="input-container">
+              <label htmlFor="cPass">Confirm Password</label>
+              <input type="password" id="cPass" name="password" required />
+            </div>
+            <div className="button-container">
+              <button>
+                <span onClick={this.login}>Sign Up</span>
+              </button>
+            </div>
+            <div className="not-account">
+              Already have an account? <a href="/sign-in">Sign In Here</a>
+            </div>
           </div>
 
           {/* Card Area  */}
