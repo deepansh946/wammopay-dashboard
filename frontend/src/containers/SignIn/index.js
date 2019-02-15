@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
+import SocialButton from './SocialButton';
 
 import './style.css';
 
 export default class SignIn extends Component {
-  state = { users: [] };
-
-  componentDidMount() {
-    fetch('/api/user/allUsers')
-      .then(res => {
-        console.log(res);
-        this.setState({ users: res });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+  state = {};
 
   render() {
     return (

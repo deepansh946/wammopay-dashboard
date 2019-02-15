@@ -2,34 +2,37 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 
 export default class SignUp extends Component {
-  state = {
-    email: '',
-    fullName: '',
-    mobileNumber: '',
-    password: ''
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      fullName: '',
+      mobileNumber: '',
+      password: '',
+      isLogin: false
+    };
+  }
+
+  onChangeEmail = e => {
+    this.setState({ email: e.target.value });
   };
 
-  onChangeEmail(e) {
-    // const { field, value } = e.target;
-    // console.log(field, value);
-    this.setState({ email: e.target.value });
-  }
-
-  onChangePassword(e) {
+  onChangePassword = e => {
     this.setState({ password: e.target.value });
-  }
+  };
 
-  onChangeNumber(e) {
+  onChangeNumber = e => {
     this.setState({ mobileNumber: e.target.value });
-  }
+  };
 
-  onChangeName(e) {
+  onChangeName = e => {
     this.setState({ fullName: e.target.value });
-  }
+  };
 
-  login() {
+  login = () => {
     console.log('Login Called');
     const { email, fullName, mobileNumber, password } = this.state;
+    console.log(email, fullName, mobileNumber, password);
     Axios({
       method: 'POST',
       url: '/api/users/',
@@ -40,11 +43,24 @@ export default class SignUp extends Component {
         password
       }
     })
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-  }
+      .then(res => {
+        console.log(res.data);
+        const { statusCode } = res.data;
+        if (statusCode === 200) {
+          this.setState({ isLogin: true });
+          this.props.history.push('/');
+        } else {
+          alert('User Registration Failed. Please try again');
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        alert(err);
+      });
+  };
 
   render() {
+    const { email, fullName, mobileNumber, password } = this.state;
     return (
       <div className="wrapper wrapper-content--- overflow-hidden">
         <div className="container-login">
@@ -58,28 +74,31 @@ export default class SignUp extends Component {
               <div className="input-container">
                 <label htmlFor="req">Email</label>
                 <input
-                  value={this.state.email}
                   type="email"
                   id="email"
                   required
+                  value={email}
                   onChange={this.onChangeEmail}
+                  name="email"
                 />
               </div>
               <div className="input-container">
                 <label htmlFor="req">Full Name</label>
                 <input
-                  type="email"
+                  type="text"
                   id="fName"
                   required
                   onChange={e => this.onChangeName(e)}
+                  value={fullName}
                 />
               </div>
               <div className="input-container">
                 <label htmlFor="req">Mobile Number</label>
                 <input
-                  type="email"
+                  type="number"
                   id="mobile"
                   required
+                  value={mobileNumber}
                   onChange={e => this.onChangeNumber(e)}
                 />
               </div>
@@ -90,6 +109,7 @@ export default class SignUp extends Component {
                   id="pass"
                   name="password"
                   required
+                  value={password}
                   onChange={e => this.onChangePassword(e)}
                 />
               </div>
