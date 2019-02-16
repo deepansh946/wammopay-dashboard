@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Colors">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<!-- Title -->
+<title>WammoPay - Dashboard</title>
+
+<!-- Favicon -->
+<link rel="icon" href="img/core-img/favicon.png">
+
+<!-- ====== Only needs these css for the run this page ====== -->
+<link href="assets/vendor_components/jvectormap/lib2/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/plugins/morris-css/morris.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<!-- ====== /. Only needs these css for the run this page ====== -->
+
+<!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="template-light">
+
+<!-- ======================================
+    *************** Preloader *****************
+    ======================================= -->
+<div class="matmin-preloader">
+  <div class="preloader-wrapper small active">
+    <div class="spinner-layer spinner-green-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================
+    ******* Main Wrapper Area Start **********
+    ======================================= -->
+<div class="main-wrapper" id="mainWrapper"> 
+  
+  <!-- ====== Header Area Start ====== -->
+  <header class="matmin-header-area d-flex align-items-center justify-content-between header-wrapper"> 
+    
+    <!-- Single Header Content -->
+    <div class="single-header-content d-flex align-items-center"> 
+      
+      <!-- Logo & Trigger Area -->
+      <div class="logo-and-trigger-area mr-30 d-flex align-items-center justify-content-between"> 
+        <!-- Logo Area -->
+        <div class="logo-area"> <a href="index-1.html"><img src="img/core-img/wpay-logo.png" alt=""></a> </div>
+        <!-- Trigger -->
+        <div class="top-trigger"> <span></span> <span></span> <span></span> </div>
+      </div>
+      
+      <!-- Left Side Nav -->
+      <ul class="top-left-side-nav d-flex align-items-center">
+        <li class="nav-item">
+          <div class="top-search-bar">
+            <form action="#" method="get">
+              <div class="input-field"> <i class="pe-7s-search prefix"></i>
+                <input type="search" name="search" class="top-search mb-0" placeholder="Type your keywords...">
+                <button type="submit" class="d-none"></button>
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Single Header Content -->
+    <div class="single-header-content mr-15">
+      <div class="user-meta-data d-flex align-items-center"> 
+        <!-- Top Bar Nav -->
+        <ul class="top-bar-nav d-flex align-items-center">
+          <li class="nav-item dropdown">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="pe-7s-bell" aria-hidden="true"></i> <span class="active-status pulse"></span></button>
+            <div class="dropdown-menu dropdown-menu-right"> 
+              <!-- Top Message Area -->
+              <div class="top-message-area"> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">A free 6-hour video course on Angular</span> <span class="mes-sent-time">3 min ago</span></a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">Google Ads: You'll get a refund soon</span> <span class="mes-sent-time">27 min ago</span></a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">New Feature: HTTP Method Selection</span> <span class="mes-sent-time">56 min ago</span></a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">The Complete JavaScript Handbook - the new free book</span> <span class="mes-sent-time">1 hour ago</span></a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">New comment: Matmin - Admin Template</span> <span class="mes-sent-time">2 days ago</span></a> </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="pe-7s-help1" aria-hidden="true"></i> <span class="active-status pulse"></span></button>
+            <div class="dropdown-menu dropdown-menu-right"> 
+              <!-- Top Notifications Area -->
+              <div class="top-notifications-area"> <a href="#" class="dropdown-item"><i class="icon_gift_alt"></i><span>We've got something for you!</span></a> <a href="#" class="dropdown-item"><i class="icon_error-triangle_alt"></i><span>Domain names expiring on Tuesday</span></a> <a href="#" class="dropdown-item"><i class="icon_check"></i><span>Your commissions has been sent</span></a> <a href="#" class="dropdown-item"><i class="icon_heart_alt"></i><span>You sold an item!</span></a> <a href="#" class="dropdown-item"><i class="icon_error-triangle_alt"></i><span>Security alert for your linked Google account</span></a> </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/member-img/women.jpg" alt=""><span class="welcome-user">Katherin Rose</span></button>
+            <div class="dropdown-menu dropdown-menu-right"> 
+              <!-- User Profile Area -->
+              <div class="user-profile-area">
+                <div class="user-intro bg-img d-flex align-items-center" style="background-image: url(img/thumbnails-img/profile-bg.jpg);"> 
+                  <!-- Thumb -->
+                  <div class="profile--thumbnail"> <img src="img/member-img/women.jpg" alt=""> </div>
+                  <!-- Profile Text -->
+                  <div class="profile--text-details">
+                    <h6>Samantha Sarah</h6>
+                    <span>mark.ste@gmail.com</span> </div>
+                </div>
+                <a href="#" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i> My profile</a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages</a> <a href="#" class="dropdown-item"><i class="fa fa-cog" aria-hidden="true"></i> Account settings</a> <a href="#" class="dropdown-item"><i class="fa fa-life-ring" aria-hidden="true"></i> Support</a> <a href="#" class="dropdown-item"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign-out</a> </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <!-- ====== Header Area End ====== --> 
+  
+  <!-- ====== Settings Panel Area Start ====== --> 
+  
+  <!-- ==================================
+        ******* Page Wrapper Area Start *******
+        =================================== -->
+  <div class="page-wrapper d-flex clearfix"> 
+    
+    <!-- ====== Left Sidebar Area Start ====== -->
+    <div class="left-sidebar-area"> 
+      <!-- Side Menu Area -->
+      <div class="side-menu-area"> 
+        
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="menu-title mb-30 active"> <a href="index-1.html"><i class="pe-7s-home homeclick"></i><span>Home<br>
+            <small>Active your account</small></span></a> </li>
+          <li class="menu-title"> <a href="index-1.html"><i class="pe-7s-credit"></i><span>Payment</span></a> </li>
+          <li class="menu-title"> <a href="index-1.html"><i class="pe-7s-cash"></i><span>Balance</span></a> </li>
+          <li class="menu-title mb-30"> <a href="index-1.html"><i class="pe-7s-users"></i><span>Customers</span></a> </li>
+          <li class="menu-title"> <a href="index-1.html"><i class="pe-7s-note2"></i><span>Billing</span></a> </li>
+          <li class="menu-title mb-30"> <a href="index-1.html"><i class="pe-7s-monitor"></i><span>Developers</span></a> </li>
+          <li class="menu-title"> <a href="index-1.html"><i class="pe-7s-graph3"></i> <span>Business Settings</span> </a> </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ====== Left Sidebar Area End ====== --> 
+    
+    <!-- ====== Page Content Area Start ====== -->
+    <div class="page-content"> 
+      <!-- Wrapper -->
+      <div class="wrapper wrapper-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-12"> 
+              <!-- Ibox -->
+              <div class="box box-info bg-boxshadow mb-30 balance-box">
+                <div class="box-header">
+                  <h2>USD Balance</h2>
+                </div>
+                <!-- Ibox Content -->
+                <div class="box-body">
+                    <div class="row">
+                      <div class="col-md-8 col-sm-8 col-8 mb-10">On the way to your bank</div>
+                      <div class="col-md-4 col-sm-4 col-4 text-right"><strong>$235.67</strong></div>
+                    </div> 
+                    <div class="row mb-30">
+                      <div class="col-md-8 col-sm-8 col-8 ">Estimated future payouts</div>
+                      <div class="col-md-4 col-sm-4 col-4 text-right"><strong>$135.67</strong></div>
+                    </div> 
+                    <div class="row">
+                      <div class="col-md-8 col-sm-8 col-8 "><h4>Total</h4></div>
+                      <div class="col-md-4 col-sm-4 col-4 text-right"><h4>$371.34</h4></div>
+                    </div> 
+                                    
+                </div>
+                
+              </div>
+
+
+              <!-- Ibox -->
+              <div class="box box-info bg-boxshadow mb-30 balance-box set-sec">
+                <div class="box-header">
+                  <h3>On the way to your bank</h3>
+                  <p>These funds should arrive in your bank account soon.</p>
+                </div>
+                <!-- Ibox Content -->
+                <div class="box-body">
+                  
+               <div class="row">
+                      <div class="col-md-8 col-sm-8 col-8 "><h4>Total</h4></div>
+                      <div class="col-md-4 col-sm-4 col-4 text-right"><h4>$235.67</h4></div>
+                    </div>
+
+                 
+                  
+                </div>
+                
+              </div>  
+
+
+              <!-- Ibox -->
+              <div class="box box-info bg-boxshadow mb-30 balance-box set-sec">
+                <div class="box-header">
+                  <h3>Estimated future payouts</h3>
+                  <p>These amounts are estimated because transactions are still accumulating. Payouts are scheduled to <a href="">automatically send daily</a></p>
+                </div>
+                <!-- Ibox Content -->
+                <div class="box-body">
+                  
+               <div class="row">
+                      <div class="col-md-8 col-sm-8 col-8"><h4>Total</h4></div>
+                      <div class="col-md-4 col-sm-4 col-4 text-right"><h4>$371.34</h4></div>
+                    </div>
+
+                 
+                  
+                </div>
+                
+              </div>  
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ====== Page Content Area End ====== --> 
+  </div>
+  <!-- ==================================
+        ******* Page Wrapper Area End *******
+        =================================== --> 
+  
+  <!-- ====== Footer Area Start ====== -->
+  <footer class="matmin-footer">
+    <div class="container-fluid h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12"> 
+          <!-- Copywrite Text -->
+          <div class="copywrite-text d-flex justify-content-between">
+            <p>&copy; 2019 </p>
+            <!-- Nav Style -->
+            <div class="footer--nav--style">
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ====== Footer Area End ====== --> 
+  
+</div>
+<!-- ======================================
+    ********* Main Wrapper Area End ***********
+    ======================================= --> 
+
+<!-- ======== Must needed plugins to the run this template ======= --> 
+<script src="assets/js/jquery/jquery.2.2.4.min.js"></script> 
+<script src="assets/js/bootstrap/popper.min.js"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js"></script> 
+<script src="js/plugins-js/menu-active.js"></script> 
+<script src="js/plugins-js/plugins-js/materialize.js"></script> 
+<script src="js/box-switch.js"></script> 
+<script src="js/fullscreen.js"></script> 
+<script src="js/nicescroll.min.js"></script> 
+<script src="js/active.js"></script> 
+<!-- this plugins only for demo purpose --> 
+<script src="js/settings.js"></script> 
+<!-- ======== /. Must needed plugins to the run this template ======= --> 
+
+<!-- Plugins js --> 
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> 
+<!-- ======== /. Only needs these plugins for the run this page ======== --> 
+
+<script>
+  
+    $(function() {
+
+    var start = moment().subtract(29, 'days');
+    var end = moment();
+
+    function cb(start, end) {
+        $('.date-range label').html(start.format('DD MMMM, YYYY') + ' <span class="drang">to</span> ' + end.format('DD MMMM, YYYY'));
+    }
+
+    $('#date-range').daterangepicker({
+        startDate: start,
+        endDate: end,
+        autoApply: true,        
+    }, cb);
+
+    cb(start, end);
+
+});
+
+        
+   
+</script> 
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.tooltipped');
+            var instances = M.Tooltip.init(elems, options);
+        });
+
+        // Or with jQuery
+
+        $(document).ready(function() {
+            $('.tooltipped').tooltip();
+        });
+    </script>
+</body>
+</html>

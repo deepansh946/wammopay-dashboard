@@ -7592,7 +7592,7 @@ section#demo {
 .card-login-area .title img {
 	margin-bottom: 15px;
 }
-.card-login-area {
+.card-login-area form {
 	padding: 20px 40px 40px 40px;
 }
 .card-login-area .input-container {
@@ -10620,7 +10620,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 	font-size: 12px;
 }
 .side-menu-area {
-	background-color: #faf9fc;
+	background-color: #0c0c0c;
 	position: relative;
 	width: 100%;
 	top: 0;

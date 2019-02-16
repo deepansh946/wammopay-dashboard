@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Colors">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<!-- Title -->
+<title>WammoPay - Dashboard</title>
+
+<!-- Favicon -->
+<link rel="icon" href="img/core-img/favicon.png">
+
+<!-- ====== Only needs these css for the run this page ====== -->
+<link href="assets/vendor_components/jvectormap/lib2/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/plugins/morris-css/morris.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<!-- ====== /. Only needs these css for the run this page ====== -->
+
+<!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="template-light">
+
+<!-- ======================================
+    *************** Preloader *****************
+    ======================================= -->
+<div class="matmin-preloader">
+  <div class="preloader-wrapper small active">
+    <div class="spinner-layer spinner-green-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================
+    ******* Main Wrapper Area Start **********
+    ======================================= -->
+<div class="main-wrapper" id="mainWrapper"> 
+  
+  <!-- ====== Header Area Start ====== -->
+  <header class="matmin-header-area d-flex align-items-center justify-content-between header-wrapper"> 
+    
+    <!-- Single Header Content -->
+    <div class="single-header-content d-flex align-items-center"> 
+      
+      <!-- Logo & Trigger Area -->
+      <div class="logo-and-trigger-area mr-30 d-flex align-items-center justify-content-between"> 
+        <!-- Logo Area -->
+        <div class="logo-area"> <a href="index-1.html"><img src="img/core-img/wpay-logo.png" alt=""></a> </div>
+        <!-- Trigger -->
+        <div class="top-trigger"> <span></span> <span></span> <span></span> </div>
+      </div>
+      
+      <!-- Left Side Nav -->
+      <ul class="top-left-side-nav d-flex align-items-center">
+        <li class="nav-item">
+          <div class="top-search-bar">
+            <form action="#" method="get">
+              <div class="input-field"> <i class="pe-7s-search prefix"></i>
+                <input type="search" name="search" class="top-search mb-0" placeholder="Type your keywords...">
+                <button type="submit" class="d-none"></button>
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Single Header Content -->
+    <div class="single-header-content mr-15">
+      <div class="user-meta-data d-flex align-items-center"> 
+        <!-- Top Bar Nav -->
+        <ul class="top-bar-nav d-flex align-items-center">
+          <li class="nav-item dropdown">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="pe-7s-bell" aria-hidden="true"></i> <span class="active-status pulse"></span></button>
+            <div class="dropdown-menu dropdown-menu-right"> 
+              <!-- Top Message Area -->
+              <div class="top-message-area"> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">A free 6-hour video course on Angular</span> <span class="mes-sent-time">3 min ago</span></a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">Google Ads: You'll get a refund soon</span> <span class="mes-sent-time">27 min ago</span></a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">New Feature: HTTP Method Selection</span> <span class="mes-sent-time">56 min ago</span></a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">The Complete JavaScript Handbook - the new free book</span> <span class="mes-sent-time">1 hour ago</span></a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o"></i><span class="mes-title">New comment: Matmin - Admin Template</span> <span class="mes-sent-time">2 days ago</span></a> </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="pe-7s-help1" aria-hidden="true"></i> <span class="active-status pulse"></span></button>
+            <div class="dropdown-menu dropdown-menu-right"> 
+              <!-- Top Notifications Area -->
+              <div class="top-notifications-area"> <a href="#" class="dropdown-item"><i class="icon_gift_alt"></i><span>We've got something for you!</span></a> <a href="#" class="dropdown-item"><i class="icon_error-triangle_alt"></i><span>Domain names expiring on Tuesday</span></a> <a href="#" class="dropdown-item"><i class="icon_check"></i><span>Your commissions has been sent</span></a> <a href="#" class="dropdown-item"><i class="icon_heart_alt"></i><span>You sold an item!</span></a> <a href="#" class="dropdown-item"><i class="icon_error-triangle_alt"></i><span>Security alert for your linked Google account</span></a> </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/member-img/women.jpg" alt=""><span class="welcome-user">Katherin Rose</span></button>
+            <div class="dropdown-menu dropdown-menu-right"> 
+              <!-- User Profile Area -->
+              <div class="user-profile-area">
+                <div class="user-intro bg-img d-flex align-items-center" style="background-image: url(img/thumbnails-img/profile-bg.jpg);"> 
+                  <!-- Thumb -->
+                  <div class="profile--thumbnail"> <img src="img/member-img/women.jpg" alt=""> </div>
+                  <!-- Profile Text -->
+                  <div class="profile--text-details">
+                    <h6>Samantha Sarah</h6>
+                    <span>mark.ste@gmail.com</span> </div>
+                </div>
+                <a href="#" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i> My profile</a> <a href="#" class="dropdown-item"><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages</a> <a href="#" class="dropdown-item"><i class="fa fa-cog" aria-hidden="true"></i> Account settings</a> <a href="#" class="dropdown-item"><i class="fa fa-life-ring" aria-hidden="true"></i> Support</a> <a href="#" class="dropdown-item"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign-out</a> </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <!-- ====== Header Area End ====== --> 
+  
+  <!-- ====== Settings Panel Area Start ====== --> 
+  
+  <!-- ==================================
+        ******* Page Wrapper Area Start *******
+        =================================== -->
+  <div class="page-wrapper d-flex clearfix"> 
+    
+    <!-- ====== Left Sidebar Area Start ====== -->
+    <div class="left-sidebar-area"> 
+      <!-- Side Menu Area -->
+      <div class="side-menu-area"> 
+        
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="menu-title mb-30 active"> <a href="index-1.html"><i class="pe-7s-home homeclick"></i><span>Home<br>
+            <small>Active your account</small></span></a> </li>
+          <li class="menu-title"> <a href="index-1.html"><i class="pe-7s-credit"></i><span>Payment</span></a> </li>
+          <li class="menu-title"> <a href="index-1.html"><i class="pe-7s-cash"></i><span>Balance</span></a> </li>
+          <li class="menu-title mb-30"> <a href="index-1.html"><i class="pe-7s-users"></i><span>Customers</span></a> </li>
+          <li class="menu-title"> <a href="index-1.html"><i class="pe-7s-note2"></i><span>Billing</span></a> </li>
+          <li class="menu-title mb-30"> <a href="index-1.html"><i class="pe-7s-monitor"></i><span>Developers</span></a> </li>
+          <li class="menu-title"> <a href="index-1.html"><i class="pe-7s-graph3"></i> <span>Business Settings</span> </a> </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ====== Left Sidebar Area End ====== --> 
+    
+    <!-- ====== Page Content Area Start ====== -->
+    <div class="page-content"> 
+      <!-- Wrapper -->
+      <div class="wrapper wrapper-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-12"> 
+              <!-- Ibox -->
+              <div class="box box-info bg-boxshadow mb-30 wel-box">
+                <div class="box-header- mb-30">
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn button-box-tool" data-widget="remove"><i class="icon_close"></i></button>
+                  </div>
+                </div>
+                <!-- Ibox Content -->
+                <div class="box-body">
+                  <div>
+                    <div class="ibox-title mb-30">
+                      <h5 class="box-title">Welcome to WammoPay!</h5>
+                      <p>Here are a few quick links to help you start accepting payment.</p>
+                    </div>
+                    <!-- Ibox Content -->
+                    <div class="ibox-content wel-content ">
+                      <div class="row">
+                        <div class="col-md-4"> <img src="img/core-img/Group 110.svg" alt=""> <span class="wel-link"><a href="">Get your API keys</a></span> </div>
+                        <div class="col-md-4"> <img src="img/core-img/Group 112.svg" alt=""> <span class="wel-link"><a href="">Get help by chat, phone or email</a></span> </div>
+                        <div class="col-md-4"> </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4"> <img src="img/core-img/Group 111.svg" alt=""> <span class="wel-link"><a href="">Active your account</a></span> </div>
+                        <div class="col-md-4"> <img src="img/core-img/Group 113.svg" alt=""> <span class="wel-link"><a href="">Read API docs</a></span> </div>
+                        <div class="col-md-4"> </div>
+                      </div>
+                      <p class="mt-30">Don't want to write your own integration? <a href="">Pick a pre-built solution</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-9 col-md-9 col-sm-7"> 
+              <!-- Ibox -->
+              <div class="box box-info bg-boxshadow mb-30 wel-box"> 
+                
+                <!-- Ibox Content -->
+                <div class="box-body">
+                  <div>
+                    <div class="row ">
+                      <div class="col-md-6">
+                        <h6>Total <strong>$0.00</strong></h6>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1st Jan, 2019</a>
+                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 41px, 0px); top: 0px; left: 0px; will-change: transform;"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Separated link</a> </div>
+                        <span>$0.00</span> </div>
+                      <div class="col-md-6 text-right">
+                        <button type="button" class="btn btn-outline-primary btn-round-holo dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gross Volume</button>
+                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 41px, 0px); top: 0px; left: 0px; will-change: transform;"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Separated link</a> </div>
+                      </div>
+                    </div>
+                    <!-- Ibox Content -->
+                    <div class="ibox-content mt-30" style="height: 160px;" >
+                      <canvas id="blankChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-3 col-sm-5"> 
+              <!-- Ibox -->
+              <div class="box box-info bg-boxshadow mb-30 amt-box"> 
+                
+                <!-- Ibox Content -->
+                <div class="box-body">
+                  <div> 
+                    
+                    <!-- Ibox Content -->
+                    <div class="ibox-content amt-content ">
+                      <div class="row">
+                        <div class="col-12 text-center ">
+                          <div class="amt-first">
+                            <h3> <span class="text-green"> <i class="zmdi zmdi-check-circle"></i> </span> $9.00 </h3>
+                            <p>Deposited 21 Jan</p>
+                          </div>
+                        </div>
+                        <div class="col-12 text-center ">
+                          <div class="amt-last">
+                            <h3> <span class="text-green"> <i class="zmdi zmdi-check-circle"></i> </span> $20.00 </h3>
+                            <p>Expected Tomorrow</p>
+                            <a href="#">View Balance</a> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-12"> 
+              <!-- Ibox -->
+              <div class="box box-info bg-boxshadow mb-30 anly-box"> 
+                
+                <!-- Ibox Content -->
+                <div class="box-body">
+                  <div>
+                    <div class="ibox-title mb-10">
+                      <h6 class="box-title">Analytics</h6>
+                    </div>
+                    <!-- Ibox Content -->
+                    <div class="row ">
+                      <div class="col-md-9">
+                        <div class="mb-30">
+                          <ul class="cusTab">
+                            <li class="tab-item"><a href="#" id="lightVersion">1W</a></li>
+                            <li class="tab-item"><a href="#" id="darkVersion" data-filter="filter 1">4W</a></li>
+                            <li class="tab-item active"><a href="#" id="leftVersion" data-filter="filter 2">1Y</a></li>
+                            <li class="tab-item"><a href="#" id="lightVersion" data-filter="filter 3">Mtd</a></li>
+                            <li class="tab-item"><a href="#" id="darkVersion" data-filter="filter 4">Qtd</a></li>
+                            <li class="tab-item"><a href="#" id="leftVersion" data-filter="filter 5">Ytd</a></li>
+                            <li class="tab-item"><a href="#" id="leftVersion" data-filter="filter 6">All</a></li>
+                          </ul>
+                          <ul class="cusTab">
+                            <li class="tab-item"><a id="daterange"><span></span></a></li>
+                          </ul>
+                          <ul class="cusTab">
+                            <li class="tab-item"><a href="#" id="lightVersion">Hourly</a></li>
+                            <li class="tab-item"><a href="#" id="darkVersion" data-filter="filter 1">Daily</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-3 text-center">
+                        <div class="anly-customize" style="display: none;">
+                          <h6> <span class="text-green"> <i class="pe-7s-config"></i> </span> Customize </h6>
+                        </div>
+                        <div class="anly-action">
+                          <a href="#" class="">Cancel</a>
+                          <a href="#" class="btn waves-effect ml-2 btn-round btn-default">Save</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Ibox Content -->
+                    <div class="ibox-content" >
+                      <div class="anly-list">
+                        <div class="anly-item">
+
+                          <div class="row item-row">
+                            <div class="col-md-6 col-sm-12 item-col">
+                              <label>
+                              <input type="checkbox" class="filled-in" checked="checked">
+                              <span class="check-box-text"></span>
+                              </label>
+                              
+                              <p class="anly-item-heading"><strong>New Customers</strong>
+                                <a class="tooltipped font-color-white mr-2 mb-30" data-position="right" data-tooltip="I am a tooltip"><sup><img src="img/core-img/Group 114.svg" alt=""></sup>
+                                </a>
+                              </p>
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                  <h3>15</h3>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-green">+83.58%</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-defalt">$13.83</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <div class="anly-chart"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="anly-item">
+                          <div class="row item-row">
+                            <div class="col-md-6 col-sm-12 item-col">
+                              <label>
+                              <input type="checkbox" class="filled-in" checked="checked">
+                              <span class="check-box-text"></span>
+                              </label>
+                              <p class="anly-item-heading"><strong>Gross Volume</strong>
+                                <a class="tooltipped font-color-white mr-2 mb-30" data-position="right" data-tooltip="I am a tooltip"><sup><img src="img/core-img/Group 114.svg" alt=""></sup>
+                                </a>
+                              </p>
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                  <h3>$150.12</h3>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-green">+83.58%</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-defalt">$13.83</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <div class="anly-chart"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="anly-item">
+                          <div class="row item-row">
+                            <div class="col-md-6 col-sm-12 item-col">
+                              <label>
+                              <input type="checkbox" class="filled-in" checked="checked">
+                              <span class="check-box-text"></span>
+                              </label>
+                              <p class="anly-item-heading"><strong>Dispute Activity</strong>
+                                <a class="tooltipped font-color-white mr-2 mb-30" data-position="right" data-tooltip="I am a tooltip"><sup><img src="img/core-img/Group 114.svg" alt=""></sup>
+                                </a>
+                              </p>
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                  <h3>2% </h3><small>1</small>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-green">+83.58%</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-defalt">$13.83</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <div class="anly-chart"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="anly-item">
+                          <div class="row item-row">
+                            <div class="col-md-6 col-sm-12 item-col">
+                              <label>
+                              <input type="checkbox" class="filled-in" checked="checked">
+                              <span class="check-box-text"></span>
+                              </label>
+                              <p class="anly-item-heading"><strong>Net volume from sales</strong>
+                                <a class="tooltipped font-color-white mr-2 mb-30" data-position="right" data-tooltip="I am a tooltip"><sup><img src="img/core-img/Group 114.svg" alt=""></sup>
+                                </a>
+                              </p>
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                  <h3>$50.12</h3>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-green">+83.58%</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-defalt">$13.83</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <div class="anly-chart"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="anly-item">
+                          <div class="row item-row">
+                            <div class="col-md-6 col-sm-12 item-col">
+                              <label>
+                              <input type="checkbox" class="filled-in" checked="checked">
+                              <span class="check-box-text"></span>
+                              </label>
+                              <p class="anly-item-heading"><strong>Successful Payments</strong>
+                                <a class="tooltipped font-color-white mr-2 mb-30" data-position="right" data-tooltip="I am a tooltip"><sup><img src="img/core-img/Group 114.svg" alt=""></sup>
+                                </a>
+                              </p>
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                  <h3>20% </h3>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-green">+83.58%</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-defalt">$13.83</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <div class="anly-chart"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="anly-item">
+                          <div class="row item-row">
+                            <div class="col-md-6 col-sm-12 item-col">
+                              <label>
+                              <input type="checkbox" class="filled-in" checked="checked">
+                              <span class="check-box-text"></span>
+                              </label>
+                              <p class="anly-item-heading"><strong>Payments evaluated as high risk by WammoPay</strong>
+                                <a class="tooltipped font-color-white mr-2 mb-30" data-position="right" data-tooltip="I am a tooltip"><sup><img src="img/core-img/Group 114.svg" alt=""></sup>
+                                </a>
+                              </p>
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                  <h3>2 </h3><small>$12</small>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-green">+83.58%</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-defalt">$13.83</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <div class="anly-chart"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="anly-item">
+                          <div class="row item-row">
+                            <div class="col-md-6 col-sm-12 item-col">
+                              <label>
+                              <input type="checkbox" class="filled-in" checked="checked">
+                              <span class="check-box-text"></span>
+                              </label>
+                              <p class="anly-item-heading"><strong>Net volume from sales</strong>
+                                <a class="tooltipped font-color-white mr-2 mb-30" data-position="right" data-tooltip="I am a tooltip"><sup><img src="img/core-img/Group 114.svg" alt=""></sup>
+                                </a>
+                              </p>
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                  <h3>2% </h3>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-green">+83.58%</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <p class="text-defalt">$13.83</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <div class="anly-chart"></div>
+                            </div>
+                          </div>
+                        </div>
+
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ====== Page Content Area End ====== --> 
+  </div>
+  <!-- ==================================
+        ******* Page Wrapper Area End *******
+        =================================== --> 
+  
+  <!-- ====== Footer Area Start ====== -->
+  <footer class="matmin-footer">
+    <div class="container-fluid h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12"> 
+          <!-- Copywrite Text -->
+          <div class="copywrite-text d-flex justify-content-between">
+            <p>&copy; 2019 </p>
+            <!-- Nav Style -->
+            <div class="footer--nav--style">
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ====== Footer Area End ====== --> 
+  
+</div>
+<!-- ======================================
+    ********* Main Wrapper Area End ***********
+    ======================================= --> 
+
+<!-- ======== Must needed plugins to the run this template ======= --> 
+<script src="assets/js/jquery/jquery.2.2.4.min.js"></script> 
+<script src="assets/js/bootstrap/popper.min.js"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js"></script> 
+<script src="js/plugins-js/menu-active.js"></script> 
+<script src="js/plugins-js/plugins-js/materialize.js"></script> 
+<script src="js/box-switch.js"></script> 
+<script src="js/fullscreen.js"></script> 
+<script src="js/nicescroll.min.js"></script> 
+<script src="js/active.js"></script> 
+<!-- this plugins only for demo purpose --> 
+<script src="js/settings.js"></script> 
+<!-- ======== /. Must needed plugins to the run this template ======= --> 
+
+<!-- Plugins js --> 
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> 
+<!-- ======== /. Only needs these plugins for the run this page ======== --> 
+
+<script>
+  
+    $(function() {
+
+    var start = moment().subtract(29, 'days');
+    var end = moment();
+
+    function cb(start, end) {
+        $('#daterange span').html(start.format('DD MMMM, YYYY') + ' <span class="drang">to</span> ' + end.format('DD MMMM, YYYY'));
+    }
+
+    $('#daterange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        autoApply: true,        
+    }, cb);
+
+    cb(start, end);
+
+});
+
+        
+   
+</script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.tooltipped');
+            var instances = M.Tooltip.init(elems, options);
+        });
+
+        // Or with jQuery
+
+        $(document).ready(function() {
+            $('.tooltipped').tooltip();
+        });
+    </script>
+</body>
+</html>
