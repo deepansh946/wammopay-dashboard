@@ -10612,11 +10612,11 @@ div.dataTables_wrapper div.dataTables_filter input {
 	border-radius: 50%;
 }
 .user-profile-area .user-intro .profile--text-details h6 {
-	color: #ffffff;
+	color: #000;
 	margin-bottom: 0;
 }
 .user-profile-area .user-intro .profile--text-details span {
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
 	font-size: 12px;
 }
 .side-menu-area {

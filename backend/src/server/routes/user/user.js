@@ -10,12 +10,12 @@ export const insertUser = (req, res) => {
     process.env.ENCRYPTION_KEY
   ).toString();
   const query = `
-  use [wammopay-dashboard]
+  use [wammopay]
   INSERT INTO dbo.AspNetUsers (Email, UserName, PhoneNumber, PasswordHash,
-    EmailConfirmed, TwoFactorEnabled, LockoutEnabled, AccessFailedCount)
+    EmailConfirmed, TwoFactorEnabled, PhoneNumberConfirmed, LockoutEnabled, AccessFailedCount)
   VALUES
   (\'${email}\', \'${fullName}\', \'${mobileNumber}\', 
-  \'${passwordHash}\', \'false\', \'false\', \'false\', 0)
+  \'${passwordHash}\', \'false\', \'false\', \'false\', \'false\', 0)
   `;
 
   // const query = `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID(\'dbo.AspNetUsers\')`;
@@ -44,19 +44,24 @@ export const insertUser = (req, res) => {
 
 export const signIn = (req, res) => {
   const { email, password } = req.body;
-  const passwordHash = CryptoJS.MD5(password, process.env.ENCRYPTION_KEY);
+  const passwordHash = CryptoJS.MD5(
+    password,
+    process.env.ENCRYPTION_KEY
+  ).toString();
   const query = `
-  use [wammopay-dashboard]
-  select Email, PasswordHash from dbo.AspNetUsers where Email=\'${email}\' and PasswordHash=\'${passwordHash}\';
+  use [wammopay]
+  select * from dbo.AspNetUsers where Email=\'${email}\' and PasswordHash=\'${passwordHash}\';
   `;
 
   executeSql(query).then(response => {
     console.log(response);
+    const [user] = response.recordset;
 
     if (response.rowsAffected[0] > 0) {
       const obj = {
         statusCode: 200,
-        message: 'Success'
+        message: 'Success',
+        payload: user
       };
       res.send(obj);
     } else {

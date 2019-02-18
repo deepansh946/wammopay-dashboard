@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server/server.pro.js",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server/index.js"

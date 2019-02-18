@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import SocialButton from './SocialButton';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router';
+
+import { actionSignIn } from '../../actions/index';
+
 import './style.css';
 
-export default class SignIn extends Component {
+class SignIn extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    name: ''
   };
 
   onChangeEmail = e => {
@@ -26,6 +33,7 @@ export default class SignIn extends Component {
   handleSocialLogin = user => {
     // console.log('LinkedIn');
     const { email, name } = user.profile;
+    // console.log(user.profile);
     Axios({
       method: 'POST',
       url: '/api/users/',
@@ -38,6 +46,8 @@ export default class SignIn extends Component {
         console.log(res.data);
         const { statusCode } = res.data;
         if (statusCode === 200) {
+          this.props.actionSignIn({ Email: email, UserName: name });
+          alert('Sign In Successful');
           this.props.history.push('/dashboard');
         } else if (statusCode === 404) {
           alert('User not found');
@@ -65,8 +75,10 @@ export default class SignIn extends Component {
     })
       .then(res => {
         console.log(res.data);
-        const { statusCode } = res.data;
+        const { statusCode, payload } = res.data;
         if (statusCode === 200) {
+          const { Email, UserName } = payload;
+          this.props.actionSignIn({ Email, UserName });
           this.props.history.push('/dashboard');
         } else if (statusCode === 404) {
           alert('User not found');
@@ -136,8 +148,8 @@ export default class SignIn extends Component {
                 </div>
               </div>
               <div className="button-container">
-                <button>
-                  <span onClick={e => this.signIn(e)}>Sign In</span>
+                <button onClick={e => this.signIn(e)}>
+                  <span>Sign In</span>
                 </button>
               </div>
               <SocialButton
@@ -167,3 +179,17 @@ export default class SignIn extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ actionSignIn }, dispatch);
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SignIn)
+);

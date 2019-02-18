@@ -1,5 +1,6 @@
 import cluster from 'cluster';
 import os from 'os';
+import path from 'path';
 
 import express from 'express';
 import { PORT } from '../config/index';
@@ -36,6 +37,8 @@ if (cluster.isMaster) {
 
   //all the routes are included here
   routes(app);
+
+  app.use(express.static(path.join(__dirname, 'frontend/build')));
 
   //server is started
   app.listen(PORT, error => {

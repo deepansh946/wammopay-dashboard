@@ -4,16 +4,16 @@ import { Provider } from 'react-redux';
 import configureStore from './store';
 import AppRoutes from './AppRoutes';
 
- class App extends Component {
+class App extends Component {
   render() {
     return (
-        <Provider store={configureStore(window.__INITIAL_STATE__)}>
-          <BrowserRouter>
-              <AppRoutes />
-          </BrowserRouter>
-        </Provider>
+      <Provider store={configureStore(window.__INITIAL_STATE__)}>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+      </Provider>
     );
   }
 }
 
- export default App;
+export default App;

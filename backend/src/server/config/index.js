@@ -1,12 +1,12 @@
 export const isDEV = process.env.NODE_ENV === 'development';
 
 export const dbConfig = {
-  user: 'deepansh',
-  password: 'deepansh123',
-  server: 'localhost\\MSSQLSERVER',
+  user: 'wammopay',
+  password: 'admin@123',
+  server: '43.255.152.26',
   options: {
-    database: 'wammopay-dashboard'
+    database: 'wammopay'
   }
 };
 
-export const JWT_SECRET = 'ENCRYPTION_IS_NECESSARY';
+export const KEY = 'ENCRYPTION_IS_NECESSARY';

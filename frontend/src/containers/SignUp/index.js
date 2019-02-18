@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-export default class SignUp extends Component {
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router';
+
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,6 +53,7 @@ export default class SignUp extends Component {
         const { statusCode } = res.data;
         if (statusCode === 200) {
           // this.setState({ isLogin: true });
+          alert('You are registered. Please login to continue');
           this.props.history.push('/sign-in');
         } else {
           alert('User Registration Failed. Please try again');
@@ -133,3 +138,16 @@ export default class SignUp extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SignUp)
+);
