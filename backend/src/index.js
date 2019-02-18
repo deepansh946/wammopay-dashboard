@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
 
@@ -20,15 +21,13 @@ app.use((req, res, next) => {
   next();
 });
 
-const PORT = 3003;
-
 middleware(app);
 
 routes(app);
 
-app.listen(PORT, error => {
+app.listen(process.env.PORT || 3003, error => {
   if (error) {
     console.error(error);
   }
-  console.log(`Server is started at ${PORT}`);
+  console.log(`Server is started!`);
 });

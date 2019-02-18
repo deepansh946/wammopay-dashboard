@@ -1,12 +1,21 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "src/server/server.pro.js",
+  "main": "src/build/server.pro.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server/index.js"
+    "dev": "nodemon --exec babel-node src/index.js",
+    "build": "yarn run clean && yarn run build-babel",
+    "start": "yarn run build && node ./build/index.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s"
+  },
+  "engines": {
+    "node": "v10.x"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "cross-env": "^5.2.0",
@@ -24,7 +33,6 @@
     "tedious": "^5.0.3"
   },
   "devDependencies": {
-    "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "eslint": "^5.12.0",

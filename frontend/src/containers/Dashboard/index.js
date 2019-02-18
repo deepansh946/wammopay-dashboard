@@ -36,7 +36,7 @@ class Dashboard extends Component {
                 <div className="logo-area">
                   <a href="index-1.html">
                     <img src={'assets/img/core-img/wpay-logo.png'} alt="" />
-                  </a>{' '}
+                  </a>
                 </div>
                 {/* <!-- Trigger --> */}
                 <div className="top-trigger">
@@ -50,7 +50,6 @@ class Dashboard extends Component {
                   <div className="top-search-bar">
                     <form action="#" method="get">
                       <div className="input-field">
-                        {' '}
                         <i className="pe-7s-search prefix" />
                         <input
                           type="search"
@@ -79,7 +78,7 @@ class Dashboard extends Component {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i className="pe-7s-bell" aria-hidden="true" />{' '}
+                      <i className="pe-7s-bell" aria-hidden="true" />
                       <span className="active-status pulse" />
                     </button>
                     <div className="dropdown-menu dropdown-menu-right">
@@ -89,37 +88,37 @@ class Dashboard extends Component {
                           <i className="fa fa-envelope-o" />
                           <span className="mes-title">
                             A free 6-hour video course on Angular
-                          </span>{' '}
+                          </span>
                           <span className="mes-sent-time">3 min ago</span>
-                        </a>{' '}
+                        </a>
                         <a href="/dashboard" className="dropdown-item">
                           <i className="fa fa-envelope-o" />
                           <span className="mes-title">
                             Google Ads: You'll get a refund soon
-                          </span>{' '}
+                          </span>
                           <span className="mes-sent-time">27 min ago</span>
-                        </a>{' '}
+                        </a>
                         <a href="/dashboard" className="dropdown-item">
                           <i className="fa fa-envelope-o" />
                           <span className="mes-title">
                             New Feature: HTTP Method Selection
-                          </span>{' '}
+                          </span>
                           <span className="mes-sent-time">56 min ago</span>
-                        </a>{' '}
+                        </a>
                         <a href="/dashboard" className="dropdown-item">
                           <i className="fa fa-envelope-o" />
                           <span className="mes-title">
                             The Complete JavaScript Handbook - the new free book
-                          </span>{' '}
+                          </span>
                           <span className="mes-sent-time">1 hour ago</span>
-                        </a>{' '}
+                        </a>
                         <a href="/dashboard" className="dropdown-item">
                           <i className="fa fa-envelope-o" />
                           <span className="mes-title">
                             New comment: Matmin - Admin Template
-                          </span>{' '}
+                          </span>
                           <span className="mes-sent-time">2 days ago</span>
-                        </a>{' '}
+                        </a>
                       </div>
                     </div>
                   </li>
@@ -137,29 +136,28 @@ class Dashboard extends Component {
                     <div className="dropdown-menu dropdown-menu-right">
                       {/* <!-- Top Notifications Area --> */}
                       <div className="top-notifications-area">
-                        {' '}
                         <a href="#" className="dropdown-item">
                           <i className="icon_gift_alt" />
                           <span>We've got something for you!</span>
-                        </a>{' '}
+                        </a>
                         <a href="#" className="dropdown-item">
                           <i className="icon_error-triangle_alt" />
                           <span>Domain names expiring on Tuesday</span>
-                        </a>{' '}
+                        </a>
                         <a href="#" className="dropdown-item">
                           <i className="icon_check" />
                           <span>Your commissions has been sent</span>
-                        </a>{' '}
+                        </a>
                         <a href="#" className="dropdown-item">
                           <i className="icon_heart_alt" />
                           <span>You sold an item!</span>
-                        </a>{' '}
+                        </a>
                         <a href="#" className="dropdown-item">
                           <i className="icon_error-triangle_alt" />
                           <span>
                             Security alert for your linked Google account
                           </span>
-                        </a>{' '}
+                        </a>
                       </div>
                     </div>
                   </li>
@@ -186,40 +184,39 @@ class Dashboard extends Component {
                         >
                           {/* <!-- Thumb --> */}
                           <div className="profile--thumbnail">
-                            {' '}
                             <img
                               src={'assets/img/member-img/women.jpg'}
                               alt=""
-                            />{' '}
+                            />
                           </div>
                           {/* <!-- Profile Text --> */}
                           <div className="profile--text-details">
                             <h6>{UserName}</h6>
-                            <span>{Email}</span>{' '}
+                            <span>{Email}</span>
                           </div>
                         </div>
                         <a href="#" className="dropdown-item">
                           <i className="fa fa-user" aria-hidden="true" /> My
                           profile
-                        </a>{' '}
+                        </a>
                         <a href="#" className="dropdown-item">
-                          <i className="fa fa-envelope-o" aria-hidden="true" />{' '}
+                          <i className="fa fa-envelope" aria-hidden="true" />
                           Messages
-                        </a>{' '}
+                        </a>
                         <a href="#" className="dropdown-item">
                           <i className="fa fa-cog" aria-hidden="true" /> Account
                           settings
-                        </a>{' '}
+                        </a>
                         <a href="#" className="dropdown-item">
-                          <i className="fa fa-life-ring" aria-hidden="true" />{' '}
+                          <i className="fa fa-life-ring" aria-hidden="true" />
                           Support
-                        </a>{' '}
+                        </a>
                         <a
                           href="#"
                           className="dropdown-item"
                           onClick={this.onSignOut}
                         >
-                          <i className="fa fa-sign-out" aria-hidden="true" />{' '}
+                          <i className="fa fa-sign-out" aria-hidden="true" />
                           Sign-out
                         </a>
                       </div>
@@ -251,72 +248,74 @@ class Dashboard extends Component {
                         <br />
                         <small>Active your account</small>
                       </span>
-                    </a>{' '}
+                    </a>
                   </li>
+
                   <li className="menu-title">
-                    {' '}
-                    <a href="index-1.html">
+                    <a href="/route/payout-setting.html">
                       <i className="pe-7s-credit" />
                       <span>Payment</span>
-                    </a>{' '}
+                    </a>
                   </li>
+
                   <li className="menu-title">
-                    {' '}
                     <a href="/route/balance.html">
                       <i className="pe-7s-cash" />
                       <span>Balance</span>
-                    </a>{' '}
+                    </a>
                   </li>
-                  <li className="menu-title">
-                    {' '}
-                    <a href="/route/payout-no-data.html">
-                      <i className="pe-7s-cash" />
-                      <span>Payouts</span>
-                    </a>{' '}
-                  </li>
+
                   <li className="menu-title mb-30">
-                    {' '}
                     <a href="index-1.html">
                       <i className="pe-7s-users" />
                       <span>Customers</span>
-                    </a>{' '}
-                  </li>
-
-                  <li className="menu-title mb-30">
-                    {' '}
-                    <a href="/route/payout-setting.html">
-                      <i className="pe-7s-users" />
-                      <span>Settings</span>
-                    </a>{' '}
-                  </li>
-                  <li className="menu-title">
-                    {' '}
-                    <a href="index-1.html">
-                      <i className="pe-7s-note2" />
-                      <span>Billing</span>
-                    </a>{' '}
+                    </a>
                   </li>
 
                   <li className="menu-title">
-                    {' '}
                     <a href="index-1.html">
                       <i className="pe-7s-note2" />
                       <span>Virtual Terminal</span>
-                    </a>{' '}
+                    </a>
                   </li>
+
+                  <li className="menu-title">
+                    <a href="index-1.html">
+                      <i className="pe-7s-note2" />
+                      <span>Billing</span>
+                    </a>
+                  </li>
+
                   <li className="menu-title mb-30">
-                    {' '}
                     <a href="index-1.html">
                       <i className="pe-7s-monitor" />
                       <span>Developers</span>
-                    </a>{' '}
+                    </a>
                   </li>
+
+                  <li className="menu-title mb-30">
+                    <a href="http://udwebs.xyz/resources">
+                      <i className="pe-7s-download" />
+                      <span>Resources</span>
+                    </a>
+                  </li>
+
                   <li className="menu-title">
-                    {' '}
                     <a href="index-1.html">
-                      <i className="pe-7s-graph3" />{' '}
-                      <span>Business Settings</span>{' '}
-                    </a>{' '}
+                      <i className="pe-7s-graph3" />
+                      <span>Business Settings</span>
+                    </a>
+                  </li>
+
+                  <li className="menu-title">
+                    <a
+                      href=""
+                      className="dropdown-item"
+                      onClick={this.onSignOut}
+                    >
+                      <i className="pe-7s-back" />
+                      <span>Sign-out</span>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -359,54 +358,50 @@ class Dashboard extends Component {
                             <div className="ibox-content wel-content ">
                               <div className="row">
                                 <div className="col-md-4">
-                                  {' '}
                                   <img
                                     src={'assets/img/core-img/Group 110.svg'}
                                     alt=""
-                                  />{' '}
+                                  />
                                   <span className="wel-link">
                                     <a href="">Get your API keys</a>
-                                  </span>{' '}
+                                  </span>
                                 </div>
                                 <div className="col-md-4">
-                                  {' '}
                                   <img
                                     src={'assets/img/core-img/Group 112.svg'}
                                     alt=""
-                                  />{' '}
+                                  />
                                   <span className="wel-link">
                                     <a href="">
                                       Get help by chat, phone or email
                                     </a>
-                                  </span>{' '}
+                                  </span>
                                 </div>
                                 <div className="col-md-4"> </div>
                               </div>
                               <div className="row">
                                 <div className="col-md-4">
-                                  {' '}
                                   <img
                                     src={'assets/img/core-img/Group 111.svg'}
                                     alt=""
-                                  />{' '}
+                                  />
                                   <span className="wel-link">
                                     <a href="">Active your account</a>
-                                  </span>{' '}
+                                  </span>
                                 </div>
                                 <div className="col-md-4">
-                                  {' '}
                                   <img
                                     src={'assets/img/core-img/Group 113.svg'}
                                     alt=""
-                                  />{' '}
+                                  />
                                   <span className="wel-link">
                                     <a href="">Read API docs</a>
-                                  </span>{' '}
+                                  </span>
                                 </div>
                                 <div className="col-md-4"> </div>
                               </div>
                               <p className="mt-30">
-                                Don't want to write your own integration?{' '}
+                                Don't want to write your own integration?
                                 <a href="">Pick a pre-built solution</a>
                               </p>
                             </div>
@@ -668,7 +663,7 @@ class Dashboard extends Component {
                         </div>
                       </div>
                     </div>
-                  </div>{' '}
+                  </div>
                 </div>
               </div>
             </div>

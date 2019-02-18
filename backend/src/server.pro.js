@@ -1,12 +1,11 @@
-import cluster from 'cluster';
-import os from 'os';
-import path from 'path';
+import 'babel-polyfill';
 
-import express from 'express';
-import { PORT } from '../config/index';
-import DB from '../config/db';
-import middleware from '../middleware/index';
-import routes from '../modules/index';
+const cluster = require('cluster');
+const os = require('os');
+
+const express = require('express');
+const middleware = require('./middleware/index');
+const routes = require('./routes/index');
 
 const nofCPU = os.cpus().length;
 
@@ -38,7 +37,7 @@ if (cluster.isMaster) {
   //all the routes are included here
   routes(app);
 
-  app.use(express.static(path.join(__dirname, 'frontend/build')));
+  // app.use(express.static(path.join(__dirname, 'frontend/build')));
 
   //server is started
   app.listen(PORT, error => {

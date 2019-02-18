@@ -3,8 +3,6 @@ import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-import localStoreRead from '../src/browser/localStoreRead';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -17,11 +15,9 @@ class AppRoutes extends Component {
   state = {};
 
   render() {
-    let isSignedIn = false;
-    if (localStoreRead('user')) isSignedIn = true;
     return (
       <Switch>
-        <Route exact path="/" component={SignIn} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/sign-in" component={SignIn} />
         <Route exact path="/dashboard" component={Dashboard} />

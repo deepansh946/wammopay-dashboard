@@ -79,6 +79,7 @@ class SignIn extends Component {
         if (statusCode === 200) {
           const { Email, UserName } = payload;
           this.props.actionSignIn({ Email, UserName });
+          alert('Sign In Successful');
           this.props.history.push('/dashboard');
         } else if (statusCode === 404) {
           alert('User not found');
@@ -93,7 +94,7 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="template-light">
         {/* Login  */}
         <div className="wrapper wrapper-content--- overflow-hidden">
           <div className="container-login">

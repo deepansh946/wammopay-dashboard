@@ -2,6 +2,9 @@
   "name": "wammopay-dashboard",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "v10.x"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.8.1",
@@ -12,7 +15,8 @@
     "react-social-login": "^3.4.4",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "serve": "^10.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
