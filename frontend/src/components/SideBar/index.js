@@ -41,7 +41,7 @@ class SideBar extends Component {
             </li>
 
             <li className="menu-title">
-              <a href="index-1.html">
+              <a href="/virtual-terminal">
                 <i className="pe-7s-note2" />
                 <span>Virtual Terminal</span>
               </a>
