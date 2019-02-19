@@ -20,14 +20,14 @@ class SideBar extends Component {
             </li>
 
             <li className="menu-title">
-              <a href="/route/payout-setting.html">
+              <a href="/payment">
                 <i className="pe-7s-credit" />
                 <span>Payment</span>
               </a>
             </li>
 
             <li className="menu-title">
-              <a href="/route/balance.html">
+              <a href="/balance">
                 <i className="pe-7s-cash" />
                 <span>Balance</span>
               </a>

@@ -6,6 +6,7 @@ import { withRouter } from 'react-router';
 
 import Header from '../Header';
 import SideBar from '../../components/SideBar';
+import Footer from '../../components/Footer';
 
 class VirtualTerminal extends Component {
   state = {};
@@ -14,9 +15,8 @@ class VirtualTerminal extends Component {
     return (
       <div className="template-light">
         <div class="main-wrapper" id="mainWrapper">
+          <Header />
           <div class="page-wrapper d-flex clearfix">
-            <Header />
-
             <SideBar />
             {/* <!-- ====== Page Content Area Start ====== --> */}
             <div className="page-content">
@@ -164,6 +164,7 @@ class VirtualTerminal extends Component {
               </div>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
     );

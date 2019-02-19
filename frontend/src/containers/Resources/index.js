@@ -6,6 +6,7 @@ import { withRouter } from 'react-router';
 
 import Header from '../Header';
 import SideBar from '../../components/SideBar';
+import Footer from '../../components/Footer';
 
 class Resources extends Component {
   state = {};
@@ -23,8 +24,8 @@ class Resources extends Component {
     return (
       <div className="template-light">
         <div className="main-wrapper" id="mainWrapper">
+          <Header />
           <div className="page-wrapper d-flex clearfix">
-            <Header />
             <SideBar />
             <div className="page-content">
               <div className="wrapper wrapper-content">
@@ -86,6 +87,7 @@ class Resources extends Component {
               </div>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
     );

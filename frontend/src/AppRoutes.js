@@ -11,6 +11,9 @@ import SignUp from './containers/SignUp';
 import Dashboard from './containers/Dashboard';
 import VirtualTerminal from './containers/VirtualTerminal';
 import Resources from './containers/Resources';
+import Payment from './containers/Payment';
+import Balance from './containers/Balance';
+import VerificationCode from './containers/VerificationCode';
 
 class AppRoutes extends Component {
   state = {};
@@ -25,6 +28,9 @@ class AppRoutes extends Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/virtual-terminal" component={VirtualTerminal} />
           <Route exact path="/resources" component={Resources} />
+          <Route exact path="/payment" component={Payment} />
+          <Route exact path="/balance" component={Balance} />
+          <Route exact path="/verify" component={VerificationCode} />
         </Switch>
       </BrowserRouter>
     );
