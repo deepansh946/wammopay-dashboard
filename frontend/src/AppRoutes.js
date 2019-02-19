@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 import { connect } from 'react-redux';
@@ -16,12 +15,14 @@ class AppRoutes extends Component {
 
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/sign-up" component={SignUp} />
-        <Route exact path="/sign-in" component={SignIn} />
-        <Route exact path="/dashboard" component={Dashboard} />
-      </Switch>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/sign-up" component={SignUp} />
+          <Route exact path="/sign-in" component={SignIn} />
+          <Route exact path="/dashboard" component={Dashboard} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

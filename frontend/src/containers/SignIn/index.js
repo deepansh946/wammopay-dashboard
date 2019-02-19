@@ -36,7 +36,7 @@ class SignIn extends Component {
     // console.log(user.profile);
     Axios({
       method: 'POST',
-      url: '/api/users/',
+      url: 'https://blooming-ridge-48458.herokuapp.com/api/users/',
       data: {
         email,
         fullName: name
