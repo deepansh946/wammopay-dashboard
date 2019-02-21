@@ -5,6 +5,12 @@ import bodyParser from 'body-parser';
 import routes from './routes/index';
 import middleware from './middleware/index';
 
+import path from 'path';
+
+var dotenv = require('dotenv').config({
+  path: path.resolve(process.cwd(), '.env')
+});
+
 const app = express();
 
 app.use(bodyParser.json());

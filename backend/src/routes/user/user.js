@@ -1,5 +1,10 @@
 import { executeSql } from '../../config/db';
 import CryptoJS from 'crypto-js';
+import path from 'path';
+
+var dotenv = require('dotenv').config({
+  path: path.resolve(process.cwd(), '.env')
+});
 
 export const insertUser = (req, res) => {
   const { email, fullName, mobileNumber, password } = req.body;
@@ -7,6 +12,7 @@ export const insertUser = (req, res) => {
     password,
     process.env.ENCRYPTION_KEY
   ).toString();
+
   const query = `
   INSERT INTO users 
     (email, username, phoneNumber, passwordHash,

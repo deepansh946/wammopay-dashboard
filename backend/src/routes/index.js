@@ -1,10 +1,10 @@
 import UserRoutes from './user';
-// import TweetRoutes from '../modules/tweets/routes';
+import TwilioRoutes from './twilio';
 
 export default app => {
   //all the routes
   app.use('/api/users', UserRoutes);
-  //   app.use('/api/tweet', TweetRoutes);
+  app.use('/api/twilio', TwilioRoutes);
 
   app.get('/', (req, res) => {
     res.send('Hello World');
