@@ -1,20 +1,20 @@
-import sql from 'mssql';
+import mysql from 'mysql';
 import { dbConfig } from './index';
 
 export async function executeSql(query) {
   return new Promise((resolve, reject) => {
-    new sql.ConnectionPool(dbConfig)
-      .connect()
-      .then(pool => {
-        return pool.request().query(query);
-      })
-      .then(result => {
-        resolve(result);
-        sql.close();
-      })
-      .catch(err => {
+    const conn = mysql.createConnection(dbConfig);
+    conn.connect(err => {
+      if (err) {
         reject(err);
-        sql.close();
+      }
+
+      conn.query(query, (err, rows, fields) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(rows, fields);
       });
+    });
   });
 }

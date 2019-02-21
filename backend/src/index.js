@@ -29,5 +29,5 @@ app.listen(process.env.PORT || 3003, error => {
   if (error) {
     console.error(error);
   }
-  console.log(`Server is started!`);
+  console.log(`Server is running!`);
 });

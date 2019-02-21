@@ -9,7 +9,7 @@ class SideBar extends Component {
         <div className="side-menu-area">
           <ul className="sidebar-menu" data-widget="tree">
             <li className="menu-title mb-30 active">
-              <a href="index-1.html">
+              <a href="/">
                 <i className="pe-7s-home homeclick" />
                 <span>
                   Home
@@ -62,7 +62,7 @@ class SideBar extends Component {
             </li>
 
             <li className="menu-title mb-30">
-              <a href="http://udwebs.xyz/resources">
+              <a href="/resources">
                 <i className="pe-7s-download" />
                 <span>Resources</span>
               </a>
