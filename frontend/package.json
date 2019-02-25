@@ -29,7 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://blooming-ridge-48458.herokuapp.com/",
+  "proxy": "http://localhost:3003",
   "eslintConfig": {
     "extends": "react-app"
   },

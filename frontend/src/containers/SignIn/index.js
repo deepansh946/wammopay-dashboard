@@ -169,7 +169,7 @@ class SignIn extends Component {
               >
                 Login with Google
               </SocialButton>
-              <div className="not-account">
+              <div className="not-account mt-2">
                 Don't have an account? <a href="/sign-up">SignUp Here</a>
               </div>
             </div>

@@ -7575,7 +7575,10 @@ section#demo {
 	position: relative;
 	margin: 0 0px 0px;
 }
-.card-login-area .input-container input[type=email], .card-login-area .input-container input[type=password] {
+.card-login-area .input-container input[type=email], 
+.card-login-area .input-container input[type=password], 
+.card-login-area .input-container input[type=text], 
+.card-login-area .input-container input[type=number] {
 	outline: none;
 	z-index: 1;
 	position: relative;
@@ -7686,7 +7689,7 @@ section#demo {
 	color: #fff;
 	transition: .3s ease;
 }
-.card-login-area .button-container button:before {
+/* .card-login-area .button-container button:before {
 	content: '';
 	position: absolute;
 	top: 50%;
@@ -7699,9 +7702,9 @@ section#demo {
 	margin: -15px 0 0 -15px;
 	opacity: 0;
 	transition: .3s ease;
-}
+} */
 .not-account {
-	font-size: 10px;
+	font-size: 12px;
 }
 .not-account a {
 	color: #463490;
