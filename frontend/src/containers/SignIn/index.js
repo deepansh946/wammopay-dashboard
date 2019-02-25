@@ -77,13 +77,12 @@ class SignIn extends Component {
         console.log(res.data);
         const { statusCode, payload } = res.data;
         if (statusCode === 200) {
-          const { email, username } = payload;
-          this.props.actionSignIn({ email, username });
-          alert('Sign In Successful');
-          this.props.history.push('/dashboard');
+          const { email, username, phoneNumber, role } = payload;
+          this.props.actionSignIn({ email, username, phoneNumber, role });
+          this.props.history.push('/verify');
         } else if (statusCode === 404) {
-          alert('User not found');
-          this.props.history.push('/sign-up');
+          alert('Email or Password is wrong');
+          // this.props.history.push('/sign-up');
         }
       })
       .catch(err => {

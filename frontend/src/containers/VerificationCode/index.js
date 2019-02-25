@@ -7,10 +7,102 @@ import { withRouter } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
+import Axios from 'axios';
+import cookieRead from '../../browser/cookieRead';
+
+import './style.css';
+
 class VerificationCode extends Component {
-  state = {};
+  state = {
+    value1: '',
+    value2: '',
+    value3: '',
+    value4: '',
+    tick: false,
+    code: '',
+    msgBody: ''
+  };
+
+  // componentWillMount() {
+  //   const temp = Math.floor(1000 + Math.random() * 9000).toString();
+
+  //   this.setState({ msgBody: temp });
+
+  //   const phoneNumber = cookieRead('phoneNumber');
+
+  //   console.log(phoneNumber, temp);
+
+  //   Axios({
+  //     method: 'POST',
+  //     url: '/api/twilio/send-code',
+  //     data: {
+  //       phoneNumber,
+  //       msgBody: temp
+  //     }
+  //   })
+  //     .then(res => {
+  //       console.log(res.data);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       alert(err);
+  //     });
+  // }
+
+  onChangeValue1 = e => {
+    this.setState({ value1: e.target.value });
+  };
+
+  onChangeValue2 = e => {
+    this.setState({ value2: e.target.value });
+  };
+
+  onChangeValue3 = e => {
+    this.setState({ value3: e.target.value });
+  };
+
+  onChangeValue4 = e => {
+    this.setState({ value4: e.target.value });
+    this.setState({ tick: true });
+  };
+
+  onClickSpan = e => {
+    const { value1, value2, value3, value4 } = this.state;
+
+    const temp = value1 + value2 + value3 + value4 + '';
+
+    console.log(temp);
+
+    const msgBody = this.state.msgBody;
+
+    console.log(msgBody);
+
+    Axios({
+      method: 'POST',
+      url: '/api/twilio/verify-code',
+      data: {
+        code: temp,
+        msgBody
+      }
+    })
+      .then(res => {
+        console.log(res.data);
+
+        const { statusCode, message } = res.data;
+        if (statusCode === 200) {
+          this.props.history.push('/dashboard');
+        } else {
+          alert(message);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
+    const { tick } = this.state;
+
     return (
       <div className="wrapper wrapper-content--- overflow-hidden">
         <div className="container-login">
@@ -37,19 +129,50 @@ class VerificationCode extends Component {
               <div className="input-container verify-field">
                 <div className="row">
                   <div className="col">
-                    <input type="tel" id="req" maxlength="1" required />
+                    <input
+                      type="tel"
+                      id="req"
+                      maxLength="1"
+                      value={this.state.value1}
+                      onChange={this.onChangeValue1}
+                      required
+                    />
                   </div>
                   <div className="col">
-                    <input type="tel" id="req" maxlength="1" required />
+                    <input
+                      type="tel"
+                      id="req"
+                      maxLength="1"
+                      value={this.state.value2}
+                      onChange={this.onChangeValue2}
+                      required
+                    />
                   </div>
                   <div className="col">
-                    <input type="tel" id="req" maxlength="1" required />
+                    <input
+                      type="tel"
+                      id="req"
+                      maxLength="1"
+                      value={this.state.value3}
+                      onChange={this.onChangeValue3}
+                      required
+                    />
                   </div>
                   <div className="col">
-                    <input type="tel" id="req" maxlength="1" required />
+                    <input
+                      type="tel"
+                      id="req"
+                      maxLength="1"
+                      value={this.state.value4}
+                      onChange={this.onChangeValue4}
+                      required
+                    />
                   </div>
                   <div className="col">
-                    <span>
+                    <span
+                      onClick={this.onClickSpan}
+                      className={tick ? 'tick' : null}
+                    >
                       <FontAwesomeIcon icon={faCheckCircle} />
                     </span>
                   </div>

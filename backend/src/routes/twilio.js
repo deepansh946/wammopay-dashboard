@@ -12,7 +12,7 @@ const client = require('twilio')(
   process.env.TWILIO_AUTH_TOKEN
 );
 
-routes.post('/verify', (req, res) => {
+routes.post('/send-code', (req, res) => {
   res.header('Content-Type', 'application/json');
 
   const { phoneNumber, msgBody } = req.body;
@@ -21,24 +21,47 @@ routes.post('/verify', (req, res) => {
     .create({
       from: process.env.TWILIO_PHONE_NUMBER,
       to: phoneNumber,
-      body: msgBody
+      body: 'Your Twilio Authentication code is ' + msgBody
     })
     .then(() => {
       const response = {
         statusCode: 200,
         message: 'Success'
       };
+
       res.send(response);
     })
     .catch(err => {
       console.log(err);
       const errResponse = {
         statusCode: 500,
-        error: 'Twilio API Error',
+        message: 'Twilio API Error',
         err: err
       };
       res.send(errResponse);
     });
+});
+
+routes.post('/verify-code', (req, res) => {
+  res.header('Content-Type', 'application/json');
+
+  const { msgBody, code } = req.body;
+
+  let response = {};
+
+  if (msgBody === code) {
+    response = {
+      statusCode: 200,
+      message: 'Success'
+    };
+  } else {
+    response = {
+      statusCode: 403,
+      message: "Verification Code doesn't match"
+    };
+  }
+
+  res.send(response);
 });
 
 export default routes;
