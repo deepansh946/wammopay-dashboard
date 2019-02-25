@@ -7,7 +7,7 @@ var dotenv = require('dotenv').config({
 });
 
 export const insertUser = (req, res) => {
-  const { email, fullName, mobileNumber, password } = req.body;
+  const { email, fullName, mobileNumber, password, role } = req.body;
   const passwordHash = CryptoJS.MD5(
     password,
     process.env.ENCRYPTION_KEY
@@ -17,10 +17,10 @@ export const insertUser = (req, res) => {
   INSERT INTO users 
     (email, username, phoneNumber, passwordHash,
     emailConfirmed, twoFactorEnabled, phoneNumberConfirmed, 
-    lockoutEnabled, accessFailedCount)
+    lockoutEnabled, accessFailedCount, role)
   VALUES
     (\'${email}\', \'${fullName}\', \'${mobileNumber}\', 
-    \'${passwordHash}\', 0, 0, 0, 0, 0)
+    \'${passwordHash}\', 0, 0, 0, 0, 0, \'${role}\')
   `;
 
   executeSql(query)
@@ -71,12 +71,12 @@ export const signIn = (req, res) => {
       var obj = {};
       if (response.length > 0) {
         const [user] = response;
-        const { email, username, phoneNumber } = user;
+        const { email, username, phoneNumber, role } = user;
 
         obj = {
           statusCode: 200,
           message: 'Success',
-          payload: { email, username, phoneNumber }
+          payload: { email, username, phoneNumber, role }
         };
       } else {
         obj = {
@@ -109,5 +109,48 @@ export const getAll = (req, res) => {
     .catch(err => {
       console.log(err);
       console.log(err.code);
+    });
+};
+
+export const get = (req, res) => {
+  const { id } = req.params;
+
+  const query = `
+  SELECT * FROM users WHERE id = ${id}
+  `;
+
+  executeSql(query)
+    .then(response => {
+      // console.log(response);
+
+      const [user] = response;
+      console.log(user);
+
+      const payload = {
+        id: user.id,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        username: user.username,
+        role: user.role
+      };
+
+      const obj = {
+        statusCode: 200,
+        message: 'Success',
+        payload: payload
+      };
+
+      res.send(obj);
+    })
+    .catch(err => {
+      console.log(err);
+
+      const obj = {
+        statusCode: 500,
+        message: 'Internal Server Error',
+        error: err
+      };
+
+      res.send(obj);
     });
 };

@@ -640,7 +640,7 @@ img {
 .color-danger {
 	color: #fc7242 !important;
 }
-.  .font-size-14 {
+.font-size-14 {
  font-size: 14px !important;
 }
 .font-size-12 {
@@ -961,7 +961,6 @@ img {
 	border-color: transparent;
 }
 .btn-outline-primary:focus, .btn-outline-primary.focus {
- box-shadow: !important;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
@@ -2004,8 +2003,8 @@ time {
 	height: 50px;
 	left: 50%;
 	margin-left: -25px;
-	-webkit-transform: translateZ(0);
-	-webkit-backface-visibility: hidden;
+	/* -webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden; */
 	font-size: 19px;
 }
 .center-orientation .vertical-timeline-icon i {
@@ -2835,7 +2834,7 @@ time {
 	content: '';
 	width: 0;
 	height: 0;
-	-webkit-transform: rotate(360deg);
+	/* -webkit-transform: rotate(360deg); */
 	border-style: solid;
 	border-width: 0 0 0 0;
 	border-color: transparent #145d49 transparent transparent;
@@ -2847,7 +2846,7 @@ time {
 	content: '';
 	width: 0;
 	height: 0;
-	-webkit-transform: rotate(360deg);
+	/* -webkit-transform: rotate(360deg); */
 	border-style: solid;
 	border-width: 0 0 0 0;
 	border-color: transparent transparent transparent #145d49;
@@ -4444,7 +4443,7 @@ time {
 	-webkit-transition: all ease 0.5s;
 	-o-transition: all ease 0.5s;
 	transition: all ease 0.5s;
-	-webkit-backface-visibility: hidden;
+	/* -webkit-backface-visibility: hidden; */
 }
 .portfolio_gallery_iteam .single_content .project_title {
 	padding: 0 30px;
@@ -4474,7 +4473,7 @@ time {
 	-webkit-transition: all ease 1s;
 	-o-transition: all ease 1s;
 	transition: all ease 1s;
-	-webkit-backface-visibility: hidden;
+	/* -webkit-backface-visibility: hidden; */
 }
 .portfolio_gallery_iteam:hover .single_content {
 	top: 0;
@@ -5410,7 +5409,7 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active {
 	position: relative;
 	height: 300px;
 	display: inline-block;
-	float: left;
+	/* float: left; */
 	cursor: pointer;
 	overflow: hidden;
 	transition: box-shadow 0.3s cubic-bezier(0.22, 0.86, 0.68, 0.95);
@@ -5755,7 +5754,6 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active {
 	background: #ffffff;
 }
 .vote-actions {
-	float: left;
 	display: inline-block;
 	margin-right: 30px;
 }
@@ -7570,7 +7568,7 @@ section#demo {
 .card-login-area .title img {
 	margin-bottom: 15px;
 }
-.card-login-area form {
+.card-login-area {
 	padding: 20px 40px 40px 40px;
 }
 .card-login-area .input-container {
@@ -7627,8 +7625,7 @@ section#demo {
 	padding: 7px 0;
 	height: auto;
 }
-.card-login-area .input-container input[type=checkbox] {
-}
+
 .card-login-area .input-container input[type="checkbox"]:not(:checked),  .card-login-area .input-container input[type="checkbox"]:checked {
 	position: relative;
 	opacity: 1;
@@ -10135,7 +10132,6 @@ div.dataTables_wrapper div.dataTables_filter input {
 	visibility: visible;
 	display: block;
 	min-height:100%;
-	webkit-box-shadow: 0 1px 15px 1px rgba(70, 70, 78, 0.15);
     box-shadow: 0 1px 15px 1px rgba(70, 70, 78, 0.15);
 }
 
@@ -11512,7 +11508,7 @@ line-height:14px;
 	margin-left:20px;
 	}	
 .text-green{color:rgba(56, 174, 43, 1)}	
-.text-defalt{color:rgba(70, 52, 144, 1))}
+.text-default{color:rgba(70, 52, 144, 1)}
 .anly-item .item-col{padding-left:40px;}
 .anly-item .item-row label{
 	position:absolute;
@@ -11633,9 +11629,6 @@ line-height:14px;
 	box-sizing:border-box;
     
 }
-.payout-modal.modal input.amtPay:before{
-	
-	}
 .payout-modal.modal p{margin-bottom:0;}
 .payout-modal.modal select{display:block;}
 .payout-box .colText small{margin-top:15px;

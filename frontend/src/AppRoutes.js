@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 import { connect } from 'react-redux';
@@ -14,25 +14,29 @@ import Resources from './containers/Resources';
 import Payment from './containers/Payment';
 import Balance from './containers/Balance';
 import VerificationCode from './containers/VerificationCode';
+import AccountSettings from './containers/AccountSettings';
+import Developers from './containers/Developers';
+import Reports from './containers/Reports';
 
 class AppRoutes extends Component {
   state = {};
 
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/sign-up" component={SignUp} />
-          <Route exact path="/sign-in" component={SignIn} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/virtual-terminal" component={VirtualTerminal} />
-          <Route exact path="/resources" component={Resources} />
-          <Route exact path="/payment" component={Payment} />
-          <Route exact path="/balance" component={Balance} />
-          <Route exact path="/verify" component={VerificationCode} />
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/sign-in" component={SignIn} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/virtual-terminal" component={VirtualTerminal} />
+        <Route exact path="/resources" component={Resources} />
+        <Route exact path="/payment" component={Payment} />
+        <Route exact path="/balance" component={Balance} />
+        <Route exact path="/verify" component={VerificationCode} />
+        <Route exact path="/account-settings" component={AccountSettings} />
+        <Route exact path="/developers" component={Developers} />
+        <Route exact path="/reports" component={Reports} />
+      </Switch>
     );
   }
 }

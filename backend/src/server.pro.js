@@ -31,13 +31,13 @@ if (cluster.isMaster) {
   //app is initialized
   const app = express();
 
+  app.use(express.static(path.join(__dirname, 'frontend/build')));
+
   //all the middleware are added
   middleware(app);
 
   //all the routes are included here
   routes(app);
-
-  // app.use(express.static(path.join(__dirname, 'frontend/build')));
 
   //server is started
   app.listen(PORT, error => {

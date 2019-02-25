@@ -18,20 +18,20 @@ export default function reducer(state, action) {
     case SIGN_IN: {
       const { payload } = action;
       //   console.log(payload);
-      const { Email, UserName } = payload;
+      const { email, username } = payload;
       //   console.log('Reducer Called');
 
       localStoreWrite('user', payload);
       cookieWrite('isSignedIn', true);
-      cookieWrite('email', Email);
-      cookieWrite('username', UserName);
+      cookieWrite('email', email);
+      cookieWrite('username', username);
       console.log('Hi');
 
       return {
         ...state,
         isSignedIn: true,
-        Email,
-        UserName
+        email,
+        username
       };
     }
     case SIGN_OUT: {

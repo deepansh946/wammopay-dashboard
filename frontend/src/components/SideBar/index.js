@@ -78,7 +78,7 @@ class SideBar extends Component {
             <li className="menu-title">
               <a href="" className="dropdown-item" onClick={this.onSignOut}>
                 <i className="pe-7s-back" />
-                <span>Sign-out</span>
+                <span>Sign Out</span>
               </a>
             </li>
           </ul>

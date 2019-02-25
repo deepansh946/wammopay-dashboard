@@ -11,7 +11,9 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "react": "^16.8.1",
+    "react-charts": "^2.0.0-alpha.12",
     "react-dom": "^16.8.1",
+    "react-dropdown": "^1.6.4",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.4",
@@ -27,7 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3003",
+  "proxy": "https://blooming-ridge-48458.herokuapp.com/",
   "eslintConfig": {
     "extends": "react-app"
   },

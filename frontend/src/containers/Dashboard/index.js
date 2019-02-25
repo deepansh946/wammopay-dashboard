@@ -23,25 +23,15 @@ class Dashboard extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="template-light">
         <div className="main-wrapper" id="mainWrapper">
-          {/* <!-- ====== Header Area Start ====== --> */}
           <Header />
 
-          {/* <!-- ====== Header Area End ====== -->  */}
-
-          {/* <!-- ====== Settings Panel Area Start ====== -->  */}
-
-          {/* <!-- ==================================
-              ******* Page Wrapper Area Start *******
-              =================================== --> */}
           <div className="page-wrapper d-flex clearfix">
-            {/* <!-- ====== Left Sidebar Area Start ====== --> */}
             <SideBar />
-            {/* <!-- ====== Left Sidebar Area End ====== -->  */}
 
-            {/* <!-- ====== Page Content Area Start ====== --> */}
             <div className="page-content">
               {/* <!-- Wrapper --> */}
               <div className="wrapper wrapper-content">
@@ -386,12 +376,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-
-            {/* <!-- ====== Page Content Area End ====== -->  */}
           </div>
-          {/* <!-- ==================================
-              ******* Page Wrapper Area End *******
-              =================================== -->  */}
 
           <Footer />
         </div>

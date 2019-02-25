@@ -4,8 +4,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
-import { actionSignOut } from '../../actions/index';
 import cookieRead from '../../browser/cookieRead';
+
+import {
+  faSignOutAlt,
+  faUser,
+  faEnvelope,
+  faCog,
+  faLifeRing
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { actionSignOut } from '../../actions/index';
+import './style.css';
 
 class Header extends Component {
   state = {};
@@ -16,8 +27,8 @@ class Header extends Component {
   };
 
   render() {
-    const UserName = cookieRead('username');
-    const Email = cookieRead('email');
+    const username = cookieRead('username');
+    const email = cookieRead('email');
     return (
       <header className="matmin-header-area d-flex align-items-center justify-content-between header-wrapper">
         {/* <!-- Single Header Content --> */}
@@ -146,7 +157,7 @@ class Header extends Component {
                     </a>
                     <a href="#" className="dropdown-item">
                       <i className="icon_error-triangle_alt" />
-                      <span>Security alert for your linked Google account</span>
+                      <span>Security alert for your linked Google </span>
                     </a>
                   </div>
                 </div>
@@ -160,7 +171,7 @@ class Header extends Component {
                   aria-expanded="false"
                 >
                   <img src={'assets/img/member-img/women.jpg'} alt="" />
-                  <span className="welcome-user">{UserName}</span>
+                  <span className="welcome-user">{username}</span>
                 </button>
                 <div className="dropdown-menu dropdown-menu-right">
                   {/* <!-- User Profile Area --> */}
@@ -178,23 +189,24 @@ class Header extends Component {
                       </div>
                       {/* <!-- Profile Text --> */}
                       <div className="profile--text-details">
-                        <h6>{UserName}</h6>
-                        <span>{Email}</span>
+                        <h6>{username}</h6>
+                        <span>{email}</span>
                       </div>
                     </div>
                     <a href="#" className="dropdown-item">
-                      <i className="fa fa-user" aria-hidden="true" /> My profile
+                      <FontAwesomeIcon icon={faUser} className={'icon'} />
+                      My profile
                     </a>
                     <a href="#" className="dropdown-item">
-                      <i className="fa fa-envelope" aria-hidden="true" />
+                      <FontAwesomeIcon icon={faEnvelope} className={'icon'} />
                       Messages
                     </a>
-                    <a href="#" className="dropdown-item">
-                      <i className="fa fa-cog" aria-hidden="true" /> Account
-                      settings
+                    <a href="/account-settings" className="dropdown-item">
+                      <FontAwesomeIcon icon={faCog} className={'icon'} />
+                      Account settings
                     </a>
                     <a href="#" className="dropdown-item">
-                      <i className="fa fa-life-ring" aria-hidden="true" />
+                      <FontAwesomeIcon icon={faLifeRing} className={'icon'} />
                       Support
                     </a>
                     <a
@@ -202,8 +214,9 @@ class Header extends Component {
                       className="dropdown-item"
                       onClick={this.onSignOut}
                     >
-                      <i className="fa fa-sign-out" aria-hidden="true" />
-                      Sign-out
+                      <FontAwesomeIcon icon={faSignOutAlt} className={'icon'} />
+                      {/* <i className="pe-7s-back" aria-hidden="true" /> */}
+                      Sign Out
                     </a>
                   </div>
                 </div>
