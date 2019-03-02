@@ -10,9 +10,9 @@ export default app => {
   app.use('/api/userRoles', UserRoleRoutes);
   app.use('/api/payments', PaymentRoutes);
 
-  app.get('/', (req, res) => {
-    res.send('Hello World');
-  });
+  // app.get('/', (req, res) => {
+  //   res.send('Hello World');
+  // });
 
   //not found routes
   app.use(function(req, res, next) {

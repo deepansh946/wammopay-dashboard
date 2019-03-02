@@ -11,6 +11,8 @@ var dotenv = require('dotenv').config({
   path: path.resolve(process.cwd(), '.env')
 });
 
+console.log(path.join(process.cwd(), 'src/build'));
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -27,7 +29,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static(path.join(__dirname, 'frontend/build')));
+// Before deploying uncomment the below lines
+// app.use(express.static(path.join(process.cwd(), 'src/build')));
+
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'src/build/index.html'));
+// });
 
 middleware(app);
 

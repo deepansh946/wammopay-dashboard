@@ -23,31 +23,31 @@ class VerificationCode extends Component {
     msgBody: ''
   };
 
-  // componentWillMount() {
-  //   const temp = Math.floor(1000 + Math.random() * 9000).toString();
+  componentWillMount() {
+    const temp = Math.floor(1000 + Math.random() * 9000).toString();
 
-  //   this.setState({ msgBody: temp });
+    this.setState({ msgBody: temp });
 
-  //   const phoneNumber = cookieRead('phoneNumber');
+    const phoneNumber = cookieRead('phoneNumber');
 
-  //   console.log(phoneNumber, temp);
+    console.log(phoneNumber, temp);
 
-  //   Axios({
-  //     method: 'POST',
-  //     url: '/api/twilio/send-code',
-  //     data: {
-  //       phoneNumber,
-  //       msgBody: temp
-  //     }
-  //   })
-  //     .then(res => {
-  //       console.log(res.data);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       alert(err);
-  //     });
-  // }
+    Axios({
+      method: 'POST',
+      url: '/api/twilio/send-code',
+      data: {
+        phoneNumber,
+        msgBody: temp
+      }
+    })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+        alert(err);
+      });
+  }
 
   onChangeValue1 = e => {
     this.setState({ value1: e.target.value });

@@ -1,6 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
-import { isDEV, SESSION_SECRET } from '../config/index';
+import { isDEV } from '../config/index';
 import helmet from 'helmet';
 import compression from 'compression';
 

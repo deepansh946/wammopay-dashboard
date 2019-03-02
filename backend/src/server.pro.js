@@ -27,19 +27,14 @@ if (cluster.isMaster) {
     cluster.fork();
   });
 } else {
-  // For every master/worker start a new express server
-  //app is initialized
   const app = express();
 
   app.use(express.static(path.join(__dirname, 'frontend/build')));
 
-  //all the middleware are added
   middleware(app);
 
-  //all the routes are included here
   routes(app);
 
-  //server is started
   app.listen(PORT, error => {
     if (error) {
       console.error(error);

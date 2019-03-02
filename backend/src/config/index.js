@@ -9,9 +9,9 @@ export const dbConfig = {
 
 // export const dbConfig = {
 //   host: 'localhost',
-//   user: 'stagingwammopay',
-//   password: 'gDmpV9irnHMvRMqzUqpZ',
-//   database: 'stagingwammopay'
+//   user: 'wammo',
+//   password: 'BrT1impxrkbfJMoOcHAp',
+//   database: 'wammo'
 // };
 
 export const KEY = 'ENCRYPTION_IS_NECESSARY';
