@@ -193,3 +193,32 @@ export const getByUsername = (req, res) => {
       res.send(obj);
     });
 };
+
+export const saveToken = (req, res) => {
+  const { access_token, email } = req.body;
+
+  const query = `
+  UPDATE users SET token = '${access_token}'
+  WHERE email = '${email}'
+  `;
+
+  executeSql(query)
+    .then(response => {
+      if (response.affectedRows > 0) {
+        const obj = {
+          statusCode: 200,
+          message: 'Success'
+        };
+        res.send(obj);
+      }
+    })
+    .catch(err => {
+      const obj = {
+        statusCode: 500,
+        message: 'Internal Server Error',
+        error: err
+      };
+
+      res.send(obj);
+    });
+};
