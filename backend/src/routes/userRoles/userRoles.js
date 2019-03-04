@@ -80,11 +80,11 @@ export const deleteUserRole = (req, res) => {
 };
 
 export const getAll = (req, res) => {
-  const { parentId } = req.body;
+  const { parentId } = req.params;
 
   const query = `
     SELECT * FROM user_roles
-    WHERE parentId = ${parentId}
+    WHERE parentId = '${parentId}'
     `;
 
   executeSql(query)

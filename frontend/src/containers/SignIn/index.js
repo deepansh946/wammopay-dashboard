@@ -77,8 +77,8 @@ class SignIn extends Component {
         console.log(res.data);
         const { statusCode, payload } = res.data;
         if (statusCode === 200) {
-          const { email, username, phoneNumber, role } = payload;
-          this.props.actionSignIn({ email, username, phoneNumber, role });
+          const { id, email, username, phoneNumber, role } = payload;
+          this.props.actionSignIn({ id, email, username, phoneNumber, role });
           this.props.history.push('/verify');
         } else if (statusCode === 404) {
           alert('Email or Password is wrong');

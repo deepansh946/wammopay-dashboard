@@ -6,12 +6,15 @@ import { bindActionCreators } from 'redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Axios from 'axios';
+
 import Header from '../Header';
 import SideBar from '../../components/SideBar';
 import Footer from '../../components/Footer';
 
 import './style.css';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import readCookie from '../../browser/cookieRead';
 
 const dummyMembers = [
   {
@@ -53,14 +56,26 @@ class AccountSettings extends Component {
   onDelete(user) {
     const { members } = this.state;
     const newMembers = members.filter(obj => obj != user);
-    this.setState({ members: newMembers });
     // TODO: Add API to delete User Roles
+    this.setState({ members: newMembers });
   }
 
   componentWillMount() {
-    ///TODO: Add API to fetch the existing roles under a parent ID
-    const members = dummyMembers;
-    this.setState({ members: members });
+    const id = readCookie('id');
+
+    Axios({
+      method: 'GET',
+      url: `/api/userRoles/getAll/${id}`
+    })
+      .then(response => {
+        console.log(response.data);
+        const { payload } = response.data;
+        this.setState({ members: payload });
+      })
+      .catch(err => {
+        console.log(err);
+        alert(`Error: ` + err);
+      });
   }
 
   onAdd = e => {

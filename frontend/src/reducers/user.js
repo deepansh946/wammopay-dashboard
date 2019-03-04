@@ -18,7 +18,7 @@ export default function reducer(state, action) {
     case SIGN_IN: {
       const { payload } = action;
       //   console.log(payload);
-      const { email, username, phoneNumber, role } = payload;
+      const { id, email, username, phoneNumber, role } = payload;
       //   console.log('Reducer Called');
 
       localStoreWrite('user', payload);
@@ -28,7 +28,7 @@ export default function reducer(state, action) {
       cookieWrite('username', username);
       cookieWrite('phoneNumber', phoneNumber);
       cookieWrite('role', role);
-      console.log('Hi');
+      cookieWrite('id', id);
 
       return {
         ...state,

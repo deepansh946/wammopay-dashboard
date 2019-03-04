@@ -71,12 +71,12 @@ export const signIn = (req, res) => {
       var obj = {};
       if (response.length > 0) {
         const [user] = response;
-        const { email, username, phoneNumber, role } = user;
+        const { id, email, username, phoneNumber, role } = user;
 
         obj = {
           statusCode: 200,
           message: 'Success',
-          payload: { email, username, phoneNumber, role }
+          payload: { id, email, username, phoneNumber, role }
         };
       } else {
         obj = {
@@ -132,6 +132,45 @@ export const get = (req, res) => {
         phoneNumber: user.phoneNumber,
         username: user.username,
         role: user.role
+      };
+
+      const obj = {
+        statusCode: 200,
+        message: 'Success',
+        payload: payload
+      };
+
+      res.send(obj);
+    })
+    .catch(err => {
+      console.log(err);
+
+      const obj = {
+        statusCode: 500,
+        message: 'Internal Server Error',
+        error: err
+      };
+
+      res.send(obj);
+    });
+};
+
+export const getByUsername = (req, res) => {
+  const { username } = req.params;
+
+  const query = `
+  SELECT * FROM users WHERE username = '${username}'
+  `;
+
+  executeSql(query)
+    .then(response => {
+      // console.log(response);
+
+      const [user] = response;
+      console.log(user);
+
+      const payload = {
+        email: user.email
       };
 
       const obj = {
