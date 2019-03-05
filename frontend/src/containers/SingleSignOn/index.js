@@ -53,28 +53,31 @@ class SingleSignOn extends Component {
 
         const token = res.data;
 
-        const { access_token } = token;
+        // const { access_token } = token;
 
-        Axios({
-          method: 'POST',
-          url: '/api/users/save-token',
-          data: {
-            email,
-            access_token
-          }
-        })
-          .then(res => {
-            console.log(res);
+        this.props.actionSignOn({ token });
+        this.props.history.push('/dashboard');
 
-            const { statusCode } = res.data;
-            if (statusCode === 200) {
-              this.props.actionSignOn({ token });
-              this.props.history.push('/dashboard');
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
+        // Axios({
+        //   method: 'POST',
+        //   url: '/api/users/save-token',
+        //   data: {
+        //     email,
+        //     access_token
+        //   }
+        // })
+        //   .then(res => {
+        //     console.log(res);
+
+        //     const { statusCode } = res.data;
+        //     if (statusCode === 200) {
+        //       this.props.actionSignOn({ token });
+        //       this.props.history.push('/dashboard');
+        //     }
+        //   })
+        //   .catch(err => {
+        //     console.log(err);
+        //   });
       })
       .catch(err => {
         console.log(err);
