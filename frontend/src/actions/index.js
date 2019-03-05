@@ -2,7 +2,8 @@ import {
   APP_IS_READY,
   APP_IS_NOT_READY,
   SIGN_IN,
-  SIGN_OUT
+  SIGN_OUT,
+  SIGN_ON
 } from '../constants';
 
 export const AppIsReady = payload => ({
@@ -22,5 +23,10 @@ export const actionSignIn = payload => ({
 
 export const actionSignOut = payload => ({
   type: SIGN_OUT,
+  payload
+});
+
+export const actionSignOn = payload => ({
+  type: SIGN_ON,
   payload
 });

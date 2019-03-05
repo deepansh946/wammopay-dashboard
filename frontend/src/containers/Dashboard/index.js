@@ -9,11 +9,20 @@ import { withRouter } from 'react-router';
 
 import { actionSignOut } from '../../actions/index';
 import Footer from '../../components/Footer';
+import readLocalStore from '../../browser/localStoreRead';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentWillMount() {
+    const token = readLocalStore('token');
+
+    if (!token) {
+      this.props.history.push('/sign-in');
+    }
   }
 
   onSignOut = () => {

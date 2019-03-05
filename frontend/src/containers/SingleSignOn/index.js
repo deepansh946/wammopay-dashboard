@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import SocialButton from './SocialButton';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
-import { actionSignIn } from '../../actions/index';
+import { actionSignOn } from '../../actions/index';
 
 import './style.css';
+import { debug } from 'util';
+import readCookie from '../../browser/cookieRead';
 
-class SignIn extends Component {
+class SingleSignOn extends Component {
   state = {
     email: '',
     password: '',
@@ -25,65 +26,55 @@ class SignIn extends Component {
     this.setState({ password: e.target.value });
   };
 
-  handleSocialLoginFailure = err => {
-    console.error(err);
-    alert('Social Login Error. Please try again');
-  };
+  componentWillMount() {
+    const email = readCookie('email');
 
-  handleSocialLogin = user => {
-    // console.log('LinkedIn');
-    const { email, name } = user.profile;
-    // console.log(user.profile);
-    Axios({
-      method: 'POST',
-      url: '/api/users/',
-      data: {
-        email,
-        fullName: name
-      }
-    })
-      .then(res => {
-        console.log(res.data);
-        const { statusCode } = res.data;
-        if (statusCode === 200) {
-          this.props.actionSignIn({ Email: email, UserName: name });
-          alert('Sign In Successful');
-          this.props.history.push('/dashboard');
-        } else if (statusCode === 404) {
-          alert('User not found');
-          this.props.history.push('/sign-up');
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        alert(err);
-      });
-  };
+    this.setState({ email: email });
+  }
 
-  signIn(e) {
+  signOn(e) {
     e.preventDefault();
 
     const { email, password } = this.state;
-    console.log(email, password);
+
+    console.log('Hi', email, password);
+
     Axios({
       method: 'POST',
-      url: '/api/users/sign-in',
-      data: {
-        email,
-        password
-      }
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      url: 'https://api.wammopay.com/Token',
+      data: `grant_type=password&username=${email}&password=${password}`
     })
       .then(res => {
+        console.log('Token');
         console.log(res.data);
-        const { statusCode, payload } = res.data;
-        if (statusCode === 200) {
-          const { id, email, username, phoneNumber, role } = payload;
-          this.props.actionSignIn({ id, email, username, phoneNumber, role });
-          this.props.history.push('/verify');
-        } else if (statusCode === 404) {
-          alert('Email or Password is wrong');
-          // this.props.history.push('/sign-up');
-        }
+
+        const token = res.data;
+
+        const { access_token } = token;
+
+        Axios({
+          method: 'POST',
+          url: '/api/users/save-token',
+          data: {
+            email,
+            access_token
+          }
+        })
+          .then(res => {
+            console.log(res);
+
+            const { statusCode } = res.data;
+            if (statusCode === 200) {
+              this.props.actionSignOn({ token });
+              this.props.history.push('/dashboard');
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
       })
       .catch(err => {
         console.log(err);
@@ -92,6 +83,7 @@ class SignIn extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="template-light">
         {/* Login  */}
@@ -103,7 +95,7 @@ class SignIn extends Component {
 
             {/* Card Area Start */}
             <div className="card-login-area">
-              <h1 className="title text-center">Sign In</h1>
+              <h1 className="title text-center">Single Sign On</h1>
               <div className="input-container">
                 <label htmlFor="req" className="labelCss">
                   Email
@@ -148,26 +140,10 @@ class SignIn extends Component {
                 </div>
               </div>
               <div className="button-container">
-                <button onClick={e => this.signIn(e)}>
+                <button onClick={e => this.signOn(e)}>
                   <span>Sign In</span>
                 </button>
               </div>
-              <SocialButton
-                provider="facebook"
-                appId="799512287069582"
-                onLoginSuccess={this.handleSocialLogin}
-                onLoginFailure={this.handleSocialLoginFailure}
-              >
-                Login with Facebook
-              </SocialButton>
-              <SocialButton
-                provider="google"
-                appId="934398712916-12m9poigpmaa5aivk5gjfq4i882oqq8u.apps.googleusercontent.com"
-                onLoginSuccess={this.handleSocialLogin}
-                onLoginFailure={this.handleSocialLoginFailure}
-              >
-                Login with Google
-              </SocialButton>
               <div className="not-account mt-2">
                 Don't have an account? <a href="/sign-up">SignUp Here</a>
               </div>
@@ -185,11 +161,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ actionSignIn }, dispatch);
+  bindActionCreators({ actionSignOn }, dispatch);
 
 export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(SignIn)
+  )(SingleSignOn)
 );

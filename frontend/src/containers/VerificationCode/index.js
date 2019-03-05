@@ -71,11 +71,7 @@ class VerificationCode extends Component {
 
     const temp = value1 + value2 + value3 + value4 + '';
 
-    console.log(temp);
-
     const msgBody = this.state.msgBody;
-
-    console.log(msgBody);
 
     Axios({
       method: 'POST',
@@ -90,7 +86,7 @@ class VerificationCode extends Component {
 
         const { statusCode, message } = res.data;
         if (statusCode === 200) {
-          this.props.history.push('/dashboard');
+          this.props.history.push('/sign-on');
         } else {
           alert(message);
         }

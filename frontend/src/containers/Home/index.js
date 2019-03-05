@@ -5,12 +5,12 @@ import { bindActionCreators } from 'redux';
 import SignIn from '../SignIn';
 import Dashboard from '../Dashboard';
 
-import cookieRead from '../../browser/cookieRead';
+import localStoreRead from '../../browser/localStoreRead';
 
 class Home extends Component {
   render() {
-    const Email = cookieRead('email');
-    return Email ? <Dashboard /> : <SignIn />;
+    const token = localStoreRead('token');
+    return token ? <Dashboard /> : <SignIn />;
   }
 }
 

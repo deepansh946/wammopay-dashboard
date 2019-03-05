@@ -17,6 +17,7 @@ import VerificationCode from './containers/VerificationCode';
 import AccountSettings from './containers/AccountSettings';
 import Developers from './containers/Developers';
 import Reports from './containers/Reports';
+import SingleSignOn from './containers/SingleSignOn';
 
 class AppRoutes extends Component {
   state = {};
@@ -36,6 +37,7 @@ class AppRoutes extends Component {
         <Route exact path="/account-settings" component={AccountSettings} />
         <Route exact path="/developers" component={Developers} />
         <Route exact path="/reports" component={Reports} />
+        <Route exact path="/sign-on" component={SingleSignOn} />
       </Switch>
     );
   }
