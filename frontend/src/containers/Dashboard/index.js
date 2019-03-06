@@ -11,18 +11,317 @@ import { actionSignOut } from '../../actions/index';
 import Footer from '../../components/Footer';
 import readLocalStore from '../../browser/localStoreRead';
 
+import GrossVolume from './Charts/Analytics/GrossVolume';
+
+import TodayGrossCharts from './Charts/TodayCharts/GrossVolume';
+import TodayTransactionAmountCharts from './Charts/TodayCharts/TransactionAmount';
+import TodayTransactionCountCharts from './Charts/TodayCharts/TransactionCount';
+
+import Axios from 'axios';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {
+    grossDataTodayChart: [],
+    transactionCountTodayChart: [],
+    transactionAmountTodayChart: [],
+    dropDownValue: 'Gross Volume',
+    startDate: new Date(),
+    date: new Date(Date.now() - 86400000)
+  };
+
+  onDropDownChange = e => {
+    this.setState({ dropDownValue: e.target.text });
+  };
+
+  handleChange = e => {
+    this.setState({ date: e }, () => {
+      console.log(this.state.date);
+    });
+  };
 
   componentWillMount() {
     const token = readLocalStore('token');
 
-    if (!token) {
+    const { access_token } = token.token;
+
+    if (!access_token) {
       this.props.history.push('/sign-in');
     }
+
+    let { date, startDate } = this.state;
+
+    let compareDate =
+      startDate.getFullYear() +
+      '-' +
+      (startDate.getMonth() + 1) +
+      '-' +
+      startDate.getDate();
+
+    let fromDate =
+      date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
+    console.log('Mount');
+    console.log(fromDate + 'T00:00:00');
+    console.log(fromDate + 'T23:59:59');
+    console.log(compareDate + 'T00:00:00');
+    console.log(compareDate + 'T23:59:59');
+
+    Axios({
+      method: 'GET',
+      url: 'https://api.wammopay.com/v1/dashboard/getanalytics',
+      params: {
+        fromDate: fromDate + 'T00:00:00',
+        toDate: fromDate + 'T23:59:59',
+        interval: 'Hour',
+        compareFromDate: compareDate + 'T00:00:00',
+        compareToDate: compareDate + 'T23:59:59'
+      },
+      // data: '',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${access_token}`
+      }
+    })
+      .then(res => {
+        const apiData = res.data;
+
+        const {
+          GrossAmountAnalytics,
+          TransactionAmountAnalytics,
+          TransactionCountAnalytics
+        } = apiData['Data'].Data;
+
+        // console.log(GrossAmountAnalytics);
+        // console.log('--------------');
+        // console.log(TransactionAmountAnalytics);
+        // console.log('--------------');
+        // console.log(TransactionCountAnalytics);
+
+        // Gross Amount Analytics
+
+        let newDataCurrent = GrossAmountAnalytics['CurrentData'];
+
+        const grossVolumeAData = newDataCurrent.map(key => {
+          return {
+            name: key.Date.slice(11, 16),
+            grossVolumeA: key.Total
+          };
+        });
+
+        let newDataPast = GrossAmountAnalytics['PastData'];
+
+        const grossVolumeBData = newDataPast.map(key => key.Total);
+
+        var i = 0;
+
+        const finalGrossData = grossVolumeAData.map(key => {
+          return {
+            ...key,
+            grossVolumeB: grossVolumeBData[i++]
+          };
+        });
+
+        // Transaction Amount Analytics
+
+        newDataCurrent = TransactionAmountAnalytics['CurrentData'];
+
+        const transactionAmountAData = newDataCurrent.map(key => {
+          return {
+            name: key.Date.slice(11, 16),
+            transactionAmountA: key.Total
+          };
+        });
+
+        newDataPast = TransactionAmountAnalytics['PastData'];
+
+        const transactionAmountBData = newDataPast.map(key => key.Total);
+
+        var i = 0;
+
+        const finalTransactionAmountData = transactionAmountAData.map(key => {
+          return {
+            ...key,
+            transactionAmountB: transactionAmountBData[i++]
+          };
+        });
+
+        // Transaction Count Analytics
+
+        newDataCurrent = TransactionCountAnalytics['CurrentData'];
+
+        const transactionCountAData = newDataCurrent.map(key => {
+          return {
+            name: key.Date.slice(11, 16),
+            transactionCountA: key.Total
+          };
+        });
+
+        newDataPast = TransactionCountAnalytics['PastData'];
+
+        const transactionCountBData = newDataPast.map(key => key.Total);
+
+        var i = 0;
+
+        const finalTransactionCountData = transactionCountAData.map(key => {
+          return {
+            ...key,
+            transactionCountB: transactionCountBData[i++]
+          };
+        });
+
+        this.setState({
+          grossDataTodayChart: finalGrossData,
+          transactionAmountTodayChart: finalTransactionAmountData,
+          transactionCountTodayChart: finalTransactionCountData
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return true;
+  }
+
+  componentDidUpdate() {
+    const token = readLocalStore('token');
+
+    const { access_token } = token.token;
+
+    let { date, startDate } = this.state;
+
+    let compareDate =
+      startDate.getFullYear() +
+      '-' +
+      (startDate.getMonth() + 1) +
+      '-' +
+      startDate.getDate();
+
+    let fromDate =
+      date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
+    console.log('Update');
+
+    console.log(fromDate + 'T00:00:00');
+    console.log(fromDate + 'T23:59:59');
+    console.log(compareDate + 'T00:00:00');
+    console.log(compareDate + 'T23:59:59');
+
+    Axios({
+      method: 'GET',
+      url: 'https://api.wammopay.com/v1/dashboard/getanalytics',
+      params: {
+        fromDate: fromDate + 'T00:00:00',
+        toDate: fromDate + 'T23:59:59',
+        interval: 'Hour',
+        compareFromDate: compareDate + 'T00:00:00',
+        compareToDate: compareDate + 'T23:59:59'
+      },
+      // data: '',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${access_token}`
+      }
+    })
+      .then(res => {
+        const apiData = res.data;
+
+        const {
+          GrossAmountAnalytics,
+          TransactionAmountAnalytics,
+          TransactionCountAnalytics
+        } = apiData['Data'].Data;
+
+        // console.log(GrossAmountAnalytics);
+        // console.log('--------------');
+        // console.log(TransactionAmountAnalytics);
+        // console.log('--------------');
+        // console.log(TransactionCountAnalytics);
+
+        // Gross Amount Analytics
+
+        let newDataCurrent = GrossAmountAnalytics['CurrentData'];
+
+        const grossVolumeAData = newDataCurrent.map(key => {
+          return {
+            name: key.Date.slice(11, 16),
+            grossVolumeA: key.Total
+          };
+        });
+
+        let newDataPast = GrossAmountAnalytics['PastData'];
+
+        const grossVolumeBData = newDataPast.map(key => key.Total);
+
+        var i = 0;
+
+        const finalGrossData = grossVolumeAData.map(key => {
+          return {
+            ...key,
+            grossVolumeB: grossVolumeBData[i++]
+          };
+        });
+
+        // Transaction Amount Analytics
+
+        newDataCurrent = TransactionAmountAnalytics['CurrentData'];
+
+        const transactionAmountAData = newDataCurrent.map(key => {
+          return {
+            name: key.Date.slice(11, 16),
+            transactionAmountA: key.Total
+          };
+        });
+
+        newDataPast = TransactionAmountAnalytics['PastData'];
+
+        const transactionAmountBData = newDataPast.map(key => key.Total);
+
+        var i = 0;
+
+        const finalTransactionAmountData = transactionAmountAData.map(key => {
+          return {
+            ...key,
+            transactionAmountB: transactionAmountBData[i++]
+          };
+        });
+
+        // Transaction Count Analytics
+
+        newDataCurrent = TransactionCountAnalytics['CurrentData'];
+
+        const transactionCountAData = newDataCurrent.map(key => {
+          return {
+            name: key.Date.slice(11, 16),
+            transactionCountA: key.Total
+          };
+        });
+
+        newDataPast = TransactionCountAnalytics['PastData'];
+
+        const transactionCountBData = newDataPast.map(key => key.Total);
+
+        var i = 0;
+
+        const finalTransactionCountData = transactionCountAData.map(key => {
+          return {
+            ...key,
+            transactionCountB: transactionCountBData[i++]
+          };
+        });
+
+        this.setState({
+          grossDataTodayChart: finalGrossData,
+          transactionAmountTodayChart: finalTransactionAmountData,
+          transactionCountTodayChart: finalTransactionCountData
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   onSignOut = () => {
@@ -32,7 +331,15 @@ class Dashboard extends Component {
   };
 
   render() {
-    console.log(this.props);
+    const {
+      grossDataTodayChart,
+      transactionAmountTodayChart,
+      transactionCountTodayChart,
+      dropDownValue,
+      startDate,
+      date
+    } = this.state;
+
     return (
       <div className="template-light">
         <div className="main-wrapper" id="mainWrapper">
@@ -138,42 +445,15 @@ class Dashboard extends Component {
                             <div className="row ">
                               <div className="col-md-6">
                                 <h6>
-                                  Total <strong>$0.00</strong>
+                                  Today <strong>$0.00</strong>
                                 </h6>
-                                <a
-                                  href="#"
-                                  className="dropdown-toggle"
-                                  data-toggle="dropdown"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                >
-                                  1st Jan, 2019
-                                </a>
-                                <div
-                                  className="dropdown-menu"
-                                  x-placement="bottom-start"
-                                  style={{
-                                    position: 'absolute',
-                                    transform: 'translate3d(0px, 41px, 0px)',
-                                    top: '0px',
-                                    left: '0px',
-                                    willChange: 'transform'
-                                  }}
-                                >
-                                  <a className="dropdown-item" href="#">
-                                    Action
-                                  </a>
-                                  <a className="dropdown-item" href="#">
-                                    Another action
-                                  </a>
-                                  <a className="dropdown-item" href="#">
-                                    Something else here
-                                  </a>
-                                  <div className="dropdown-divider" />
-                                  <a className="dropdown-item" href="#">
-                                    Separated link
-                                  </a>
-                                </div>
+                                <DatePicker
+                                  selected={date}
+                                  onChange={this.handleChange}
+                                  excludeDates={[startDate]}
+                                  dateFormat="MMMM d, yyyy"
+                                  value={date.toString().slice(4, 15)}
+                                />
                                 <span>$0.00</span>
                               </div>
                               <div className="col-md-6 text-right">
@@ -184,7 +464,7 @@ class Dashboard extends Component {
                                   aria-haspopup="true"
                                   aria-expanded="false"
                                 >
-                                  Gross Volume
+                                  {dropDownValue}
                                 </button>
                                 <div
                                   className="dropdown-menu"
@@ -197,28 +477,47 @@ class Dashboard extends Component {
                                     willChange: 'transform'
                                   }}
                                 >
-                                  <a className="dropdown-item" href="#">
-                                    Action
+                                  <a
+                                    className="dropdown-item"
+                                    href="#"
+                                    onClick={this.onDropDownChange}
+                                  >
+                                    Gross Value
                                   </a>
-                                  <a className="dropdown-item" href="#">
-                                    Another action
+                                  <a
+                                    className="dropdown-item"
+                                    href="#"
+                                    onClick={this.onDropDownChange}
+                                  >
+                                    Transaction Average
                                   </a>
-                                  <a className="dropdown-item" href="#">
-                                    Something else here
-                                  </a>
-                                  <div className="dropdown-divider" />
-                                  <a className="dropdown-item" href="#">
-                                    Separated link
+                                  <a
+                                    className="dropdown-item"
+                                    href="#"
+                                    onClick={this.onDropDownChange}
+                                  >
+                                    Transaction Count
                                   </a>
                                 </div>
                               </div>
                             </div>
-                            {/* <!-- Ibox Content --> */}
                             <div
                               className="ibox-content mt-30"
                               style={{ height: '160px' }}
                             >
-                              <canvas id="blankChart" />
+                              {dropDownValue === 'Gross Volume' ? (
+                                <TodayGrossCharts
+                                  chartData={grossDataTodayChart}
+                                />
+                              ) : dropDownValue === 'Transaction Amount' ? (
+                                <TodayTransactionAmountCharts
+                                  chartData={transactionAmountTodayChart}
+                                />
+                              ) : (
+                                <TodayTransactionCountCharts
+                                  chartData={transactionCountTodayChart}
+                                />
+                              )}
                             </div>
                           </div>
                         </div>
