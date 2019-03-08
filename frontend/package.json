@@ -22,6 +22,7 @@
     "jsonwebtoken": "^8.4.0",
     "morgan": "^1.9.1",
     "mysql": "mysqljs/mysql",
+    "react": "^16.8.1",
     "react-charts": "^2.0.0-alpha.12",
     "react-datepicker": "^2.1.0",
     "react-dom": "^16.8.1",
@@ -31,11 +32,11 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.4",
     "react-social-login": "^3.4.4",
-    "react": "^16.8.1",
+    "reactstrap": "^7.1.0",
     "recharts": "^1.5.0",
+    "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "redux": "^4.0.1",
     "reload": "^2.4.0",
     "serve": "^10.1.2",
     "tedious": "^5.0.3",
@@ -47,7 +48,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3003",
   "eslintConfig": {
     "extends": "react-app"
   },
