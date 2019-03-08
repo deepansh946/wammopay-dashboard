@@ -28,8 +28,22 @@ class SideBar extends Component {
 
             <li className="menu-title">
               <a href="/balance">
-                <i className="pe-7s-cash" />
+                <i className="pe-7s-piggy" />
                 <span>Balance</span>
+              </a>
+            </li>
+
+            <li className="menu-title">
+              <a href="/transactions">
+                <i className="pe-7s-cash" />
+                <span>Transactions</span>
+              </a>
+            </li>
+
+            <li className="menu-title">
+              <a href="/payouts">
+                <i className="pe-7s-cash" />
+                <span>Payouts</span>
               </a>
             </li>
 

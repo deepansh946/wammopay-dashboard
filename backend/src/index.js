@@ -30,12 +30,12 @@ app.use((req, res, next) => {
 });
 
 // Before deploying uncomment the below lines
-// app.use(express.static(path.join(process.cwd(), 'src/build')));
+app.use(express.static(path.join(process.cwd(), 'build')));
 
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'src/build/index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build/index.html'));
+});
 
 middleware(app);
 

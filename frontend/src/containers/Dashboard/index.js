@@ -12,6 +12,8 @@ import Footer from '../../components/Footer';
 import readLocalStore from '../../browser/localStoreRead';
 
 import GrossVolume from './Charts/Analytics/GrossVolume';
+import TransactionAmount from './Charts/Analytics/TransactionAmount';
+import TransactionCount from './Charts/Analytics/TransactionCount';
 
 import TodayGrossCharts from './Charts/TodayCharts/GrossVolume';
 import TodayTransactionAmountCharts from './Charts/TodayCharts/TransactionAmount';
@@ -20,6 +22,7 @@ import TodayTransactionCountCharts from './Charts/TodayCharts/TransactionCount';
 import Axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import './style.css';
 
 class Dashboard extends Component {
   state = {
@@ -28,16 +31,35 @@ class Dashboard extends Component {
     transactionAmountTodayChart: [],
     dropDownValue: 'Gross Volume',
     startDate: new Date(),
-    date: new Date(Date.now() - 86400000)
+    date: new Date(Date.now() - 86400000),
+    interval: 'Daily',
+    span: 2
   };
 
   onDropDownChange = e => {
     this.setState({ dropDownValue: e.target.text });
   };
 
+  onChangeInterval = e => {
+    // console.log(e.target.text);
+    this.setState({ interval: e.target.text });
+  };
+
+  onChangeSpan = e => {
+    const value = e.target.text;
+
+    console.log(this.state.span);
+    console.log(value);
+
+    if (value === '1W') this.setState({ span: 2 });
+    else if (value === '4W') this.setState({ span: 3 });
+    else if (value === '1Y') this.setState({ span: 4 });
+    // console.log(e.target.text);
+  };
+
   handleChange = e => {
     this.setState({ date: e }, () => {
-      console.log(this.state.date);
+      // console.log(this.state.date);
     });
   };
 
@@ -62,11 +84,11 @@ class Dashboard extends Component {
     let fromDate =
       date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
 
-    console.log('Mount');
-    console.log(fromDate + 'T00:00:00');
-    console.log(fromDate + 'T23:59:59');
-    console.log(compareDate + 'T00:00:00');
-    console.log(compareDate + 'T23:59:59');
+    // console.log('Mount');
+    // console.log(fromDate + 'T00:00:00');
+    // console.log(fromDate + 'T23:59:59');
+    // console.log(compareDate + 'T00:00:00');
+    // console.log(compareDate + 'T23:59:59');
 
     Axios({
       method: 'GET',
@@ -183,6 +205,10 @@ class Dashboard extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    // console.log(this.state);
+    // console.log(nextState);
+    // debugger;
+    if (this.state === nextState) return false;
     return true;
   }
 
@@ -337,7 +363,8 @@ class Dashboard extends Component {
       transactionCountTodayChart,
       dropDownValue,
       startDate,
-      date
+      date,
+      interval
     } = this.state;
 
     return (
@@ -489,7 +516,7 @@ class Dashboard extends Component {
                                     href="#"
                                     onClick={this.onDropDownChange}
                                   >
-                                    Transaction Average
+                                    Transaction Amount
                                   </a>
                                   <a
                                     className="dropdown-item"
@@ -578,7 +605,11 @@ class Dashboard extends Component {
                                 <div className="mb-30">
                                   <ul className="cusTab">
                                     <li className="tab-item">
-                                      <a href="#" id="lightVersion">
+                                      <a
+                                        href="#"
+                                        id="lightVersion"
+                                        onClick={this.onChangeSpan}
+                                      >
                                         1W
                                       </a>
                                     </li>
@@ -587,6 +618,7 @@ class Dashboard extends Component {
                                         href="#"
                                         id="darkVersion"
                                         data-filter="filter 1"
+                                        onClick={this.onChangeSpan}
                                       >
                                         4W
                                       </a>
@@ -596,12 +628,17 @@ class Dashboard extends Component {
                                         href="#"
                                         id="leftVersion"
                                         data-filter="filter 2"
+                                        onClick={this.onChangeSpan}
                                       >
                                         1Y
                                       </a>
                                     </li>
                                     <li className="tab-item">
-                                      <a href="#" id="lightVersion">
+                                      <a
+                                        href="#"
+                                        id="lightVersion"
+                                        onClick={this.onChangeSpan}
+                                      >
                                         Mtd
                                       </a>
                                     </li>
@@ -610,6 +647,7 @@ class Dashboard extends Component {
                                         href="#"
                                         id="darkVersion"
                                         data-filter="filter 1"
+                                        onClick={this.onChangeSpan}
                                       >
                                         Qtd
                                       </a>
@@ -619,6 +657,7 @@ class Dashboard extends Component {
                                         href="#"
                                         id="leftVersion"
                                         data-filter="filter 2"
+                                        onClick={this.onChangeSpan}
                                       >
                                         Ytd
                                       </a>
@@ -650,16 +689,33 @@ class Dashboard extends Component {
                                     </li>
                                   </ul>
                                   <ul className="cusTab">
-                                    <li className="tab-item">
-                                      <a href="#" id="lightVersion">
+                                    <li
+                                      className="tab-item"
+                                      onClick={this.onChangeInterval}
+                                    >
+                                      <a
+                                        href="#"
+                                        id="lightVersion"
+                                        className={
+                                          interval === 'Hourly'
+                                            ? 'interval'
+                                            : ''
+                                        }
+                                      >
                                         Hourly
                                       </a>
                                     </li>
-                                    <li className="tab-item">
+                                    <li
+                                      className="tab-item"
+                                      onClick={this.onChangeInterval}
+                                    >
                                       <a
                                         href="#"
                                         id="darkVersion"
                                         data-filter="filter 1"
+                                        className={
+                                          interval === 'Daily' ? 'interval' : ''
+                                        }
                                       >
                                         Daily
                                       </a>
@@ -672,9 +728,11 @@ class Dashboard extends Component {
                             {/* <!-- Ibox Content --> */}
                             <div
                               className="ibox-content mt-30"
-                              style={{ height: '200px' }}
+                              style={{ height: '400px' }}
                             >
-                              <canvas id="blankChart" />
+                              <GrossVolume />
+                              <TransactionAmount />
+                              <TransactionCount />
                             </div>
                           </div>
                         </div>

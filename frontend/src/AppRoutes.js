@@ -18,6 +18,8 @@ import AccountSettings from './containers/AccountSettings';
 import Developers from './containers/Developers';
 import Reports from './containers/Reports';
 import SingleSignOn from './containers/SingleSignOn';
+import Transactions from './containers/Transactions';
+import Payouts from './containers/Payouts';
 
 class AppRoutes extends Component {
   state = {};
@@ -38,6 +40,8 @@ class AppRoutes extends Component {
         <Route exact path="/developers" component={Developers} />
         <Route exact path="/reports" component={Reports} />
         <Route exact path="/sign-on" component={SingleSignOn} />
+        <Route exact path="/transactions" component={Transactions} />
+        <Route exact path="/payouts" component={Payouts} />
       </Switch>
     );
   }
