@@ -1,0 +1,57 @@
+#Seventh-Section{
+	float:left;
+	width:100%;
+	position: relative;
+	top: 110px;
+}
+.Custom-Wrapper7{
+	float:left;
+	width:100%;
+	position: relative;
+}
+.absoluteContent7{
+	float:left;
+	width:100%;
+	position: relative;
+	margin-top: 10px;
+	margin-bottom:  10px;
+}
+.paper{
+	float:left;
+	width:100%;
+	position: relative;
+	padding: 70px;
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.11);
+	margin-top: 10px;
+	margin-bottom:  10px;
+	
+	height: 216px;
+}
+
+.some-content>h1{
+color:rgba(53, 51, 70, 1);
+font-size: 40px;
+font-family: 'Poppins',sans-serif;
+}
+.some-content>p{
+color:#353346;
+font-size: 20px;
+opacity: 0.7;
+font-family: 'Poppins',sans-serif;
+}
+.paper>.some-content{
+	width: 80%;
+	float:left;
+	position: relative;
+}
+.paper>button{
+	width:20%;
+	float:right;
+	margin-right: 20px;
+	margin-top: -50px;
+	position: relative;
+}
+@media(max-width: 480px){
+.paper{padding:10px;}
+.paper>button{margin-top: -25px;}
+}

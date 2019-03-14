@@ -1,0 +1,45 @@
+#Fifth-Section{
+	width: 100%;
+	float: left;
+	position: relative;
+	top:85px;
+}
+.Custom-Wrapper5{
+	width: 100%;
+	float: left;
+	position: relative;
+	margin-top:20px;
+}
+.absoluteContent5{
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.absoluteContent5>h4{
+	color:#353346;
+	font-size: 24px;
+	text-align: center;
+	margin-bottom: 20px;
+	font-family: 'Poppins',sans-serif;
+}
+.services1-section{
+	width:100%;
+	position: relative;
+	float: left;	
+}
+.services1-section>h6{
+	font-size: 16px;
+	color:#353346;
+	font-family: 'Poppins',sans-serif;
+	margin-top: 18px;
+}
+.services1-section>p{
+	color:#353346;
+	font-size: 13px;
+	font-family: 'Poppins',sans-serif;
+}
+@media(max-width: 480px){
+	.Custom-Wrapper5{
+		margin-top: 0px!important;
+	}
+}

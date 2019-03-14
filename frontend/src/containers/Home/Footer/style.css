@@ -1,0 +1,83 @@
+#Eight-Section {
+  width: 100%;
+  position: relative;
+  float: left;
+  top: 130px;
+  background-image: url(../Assets/footerbackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 332px;
+}
+.Custom-Wrapper8 {
+  width: 100%;
+  position: relative;
+  float: left;
+}
+.absoluteContent8 {
+  width: 100%;
+  position: relative;
+  float: left;
+}
+.content-section8 {
+  width: 100%;
+  position: relative;
+  float: left;
+  padding-top: 80px;
+}
+.content-section8 > i > span {
+  color: #ffffff;
+  font-size: 15px;
+  margin-left: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+.content-section8 > i {
+  color: #ffffff;
+  font-size: 15px;
+}
+.img-manage {
+  width: 54px;
+  height: 19px;
+  margin-top: 80px;
+  float: left;
+}
+.footer-links {
+  width: 100%;
+  float: left;
+  position: relative;
+  display: flex;
+  padding-top: 80px;
+  justify-content: space-evenly;
+}
+.links1,
+.links2,
+.links3 {
+  float: left;
+  position: relative;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.links1 > p {
+  color: #ffffff;
+  font-size: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.links2 > p {
+  color: #ffffff;
+  font-size: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.links3 > p {
+  color: #ffffff;
+  font-size: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+@media (max-width: 480px) {
+  .footer-links {
+    padding-top: 20px;
+  }
+  .img-manage {
+    margin-top: 20px;
+  }
+  .content-section8 {
+    padding-top: 20px;
+  }
+}

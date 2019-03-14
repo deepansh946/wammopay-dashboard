@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
 import './styles.css';
-import countryCodes from './countryCodes';
 
 class SignUp extends Component {
   constructor(props) {

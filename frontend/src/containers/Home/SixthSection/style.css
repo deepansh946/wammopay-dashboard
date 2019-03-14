@@ -1,0 +1,109 @@
+#Sixth-Section {
+  width: 100%;
+  float: left;
+  position: relative;
+  top: 85px;
+}
+.Custom-Wrapper6 {
+  width: 100%;
+  float: left;
+  position: relative;
+  margin-top: 50px;
+}
+.absoluteContent6 {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.absoluteContent6 > h4 {
+  color: #353346;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: 'Poppins', sans-serif;
+}
+.card {
+  width: 100%;
+  float: left;
+  position: relative;
+  text-align: center;
+  height: 370px;
+  padding: 5px;
+  margin-top: 20px;
+  border: none !important;
+  box-shadow: 0px 1px 5px 2px #8f82e6;
+  opacity: 0.5;
+  margin-bottom: 30px;
+}
+.card > .semi-colon {
+  width: 80px;
+  height: 80px;
+  margin-top: -45px;
+  margin-left: 325px;
+}
+.card > p {
+  float: left;
+  position: relative;
+  margin-top: 0px;
+  padding: 60px;
+}
+.card > .avatar-img {
+  width: 60px;
+  height: 60px;
+  margin-left: 50px;
+  float: left;
+  position: relative;
+  border-radius: 50%;
+}
+.card > h5 {
+  color: rgba(33, 38, 44, 1);
+  font-size: 20px;
+  float: left;
+  text-align: left;
+  margin-left: 115px;
+  margin-top: -50px;
+}
+.card > h6 {
+  color: rgba(33, 38, 44, 0.7);
+  font-size: 16px;
+  float: left;
+  text-align: left;
+  margin-left: 115px;
+}
+.arrows {
+  width: 100%;
+  float: left;
+  position: relative;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.arrows > .left-arrow {
+  width: 24px;
+  height: 18px;
+  margin-right: 5px;
+  float: left;
+}
+.arrows > .right-arrow {
+  width: 74px;
+  height: 18px;
+  margin-left: 5px;
+  float: left;
+}
+@media (max-width: 480px) {
+  .card > .semi-colon {
+    margin-left: 190px !important;
+  }
+  .card > .avatar-img {
+    margin-top: -50px !important;
+  }
+}
+@media (max-width: 768px) {
+  .card > .semi-colon {
+    margin-left: 190px !important;
+  }
+  .card > .avatar-img {
+    margin-top: -50px !important;
+  }
+}
