@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
-import { actionSignIn } from '../../actions/index';
+import { actionSignIn, actionSignOn } from '../../actions/index';
 
 import './style.css';
 import countryCodes from './countryCodes';
@@ -61,54 +61,6 @@ class SignIn extends Component {
 
   onChangeName = e => {
     this.setState({ fullName: e.target.value });
-  };
-
-  login = e => {
-    e.preventDefault();
-    // console.log('Login Called');
-    const {
-      email,
-      fullName,
-      mobileNumber,
-      password,
-      countryCode,
-      cPassword,
-      selectedRole
-    } = this.state;
-    console.log(
-      email,
-      fullName,
-      countryCode + mobileNumber,
-      password,
-      cPassword,
-      selectedRole
-    );
-    Axios({
-      method: 'POST',
-      url: '/api/users/',
-      data: {
-        email,
-        fullName,
-        mobileNumber: countryCode + mobileNumber,
-        password,
-        role: selectedRole
-      }
-    })
-      .then(res => {
-        console.log(res.data);
-        const { statusCode } = res.data;
-        if (statusCode === 200) {
-          // this.setState({ isLogin: true });
-          alert('You are registered. Please login to continue');
-          this.props.history.push('/sign-in');
-        } else {
-          alert('User Registration Failed. Please try again');
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        alert(err);
-      });
   };
 
   handleSocialLoginFailure = err => {
@@ -166,40 +118,57 @@ class SignIn extends Component {
       Array(selectedRole)
     );
 
+    // Axios({
+    //   method: 'GET',
+    //   url: 'https://www.google.com'
+    // })
+    //   .then(res => {
+    //     console.log(res.data);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+
+    const url = 'https://api.wammopay.com/api/Account/Register';
+
     Axios({
       method: 'POST',
-      url: 'https://api.wammopay.com/api/Account/Register',
+      url: url,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       data: {
         Email: email,
         FullName: fullName,
         PhoneNumber: countryCode + mobileNumber,
         Password: password,
         ConfirmPassword: password,
-        Role: Array(selectedRole)
+        Roles: Array(selectedRole)
       }
     })
       .then(res => {
         console.log(res.data);
 
         Axios({
-          method: POST,
-          data}
+          method: 'POST',
+          url: 'https://api.wammopay.com/Token',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          data: `grant_type=password&username=${email}&password=${password}`
         })
           .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
+
+            const token = res.data;
+
+            this.props.actionSignOn({ token });
+
+            this.props.history.push('/verify-email');
           })
           .catch(err => {
             console.log(err);
-          }); 
-        // const { statusCode, payload } = res.data;
-        // if (statusCode === 200) {
-        //   const { id, email, username, phoneNumber, role } = payload;
-        //   this.props.actionSignIn({ id, email, username, phoneNumber, role });
-        //   this.props.history.push('/verify');
-        // } else if (statusCode === 404) {
-        //   alert('Email or Password is wrong');
-        //   // this.props.history.push('/sign-up');
-        // }
+          });
       })
       .catch(err => {
         console.log(err);
@@ -217,6 +186,7 @@ class SignIn extends Component {
       selectedRole,
       value
     } = this.state;
+
     return (
       <div className="template-light">
         {/* Login  */}
@@ -236,7 +206,7 @@ class SignIn extends Component {
                 <input
                   type="email"
                   id="req"
-                  value={this.state.email}
+                  value={email}
                   onChange={this.onChangeEmail}
                   required
                 />
@@ -249,7 +219,7 @@ class SignIn extends Component {
                   type="password"
                   id="pass"
                   name="password"
-                  value={this.state.password}
+                  value={password}
                   onChange={this.onChangePassword}
                   required
                 />
@@ -278,16 +248,6 @@ class SignIn extends Component {
                       </option>
                     );
                   })}
-
-                  {/* <option key="User" value="User">
-                    {'User'}
-                  </option>
-                  <option key="Developer" value="Developer">
-                    {'Developer'}
-                  </option>
-                  <option key="Analyst" value="Analyst">
-                    {'Analyst'}
-                  </option> */}
                 </select>
               </div>
               <div className="input-container">
@@ -339,6 +299,7 @@ class SignIn extends Component {
                   <span>Sign In</span>
                 </button>
               </div>
+
               <SocialButton
                 provider="facebook"
                 appId="799512287069582"
@@ -372,7 +333,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ actionSignIn }, dispatch);
+  bindActionCreators({ actionSignIn, actionSignOn }, dispatch);
 
 export default withRouter(
   connect(

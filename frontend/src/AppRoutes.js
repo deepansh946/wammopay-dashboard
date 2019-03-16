@@ -13,7 +13,8 @@ import VirtualTerminal from './containers/VirtualTerminal';
 import Resources from './containers/Resources';
 import Payment from './containers/Payment';
 import Balance from './containers/Balance';
-import VerificationCode from './containers/VerificationCode';
+import VerifyEmail from './containers/VerifyEmail';
+import VerifyPhone from './containers/VerifyPhone';
 import AccountSettings from './containers/AccountSettings';
 import Developers from './containers/Developers';
 import Reports from './containers/Reports';
@@ -35,13 +36,14 @@ class AppRoutes extends Component {
         <Route exact path="/resources" component={Resources} />
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/balance" component={Balance} />
-        <Route exact path="/verify" component={VerificationCode} />
         <Route exact path="/account-settings" component={AccountSettings} />
         <Route exact path="/developers" component={Developers} />
         <Route exact path="/reports" component={Reports} />
         <Route exact path="/sign-on" component={SingleSignOn} />
         <Route exact path="/transactions" component={Transactions} />
         <Route exact path="/payouts" component={Payouts} />
+        <Route exact path="/verify-email" component={VerifyEmail} />
+        <Route exact path="/verify-phone" component={VerifyPhone} />
       </Switch>
     );
   }
