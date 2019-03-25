@@ -7,16 +7,16 @@ export default class GetStart extends React.Component {
       <div id="Seventh-Section">
         <div className="Custom-Wrapper7">
           <div className="container">
-            <div className="absoluteContent7">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="paper">
-                    <div className="some-content">
-                      <h1>Ready to get started?</h1>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit{' '}
-                      </p>
-                    </div>
+            <div className="row">
+              <div className="col-md-12">
+                <div className="paper">
+                  <div className="some-content">
+                    <h1>Ready to get started?</h1>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit{' '}
+                    </p>
+                  </div>
+                  <div className="button-section">
                     <button className="btn btn-success custom-button20">
                       Create Account
                     </button>

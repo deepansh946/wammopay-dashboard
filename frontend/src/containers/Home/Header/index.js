@@ -3,7 +3,7 @@ import LogoImg from '../Assets/WammoWhite.png';
 import './style.css';
 
 import { withRouter } from 'react-router-dom';
-  
+
 class NavBar extends React.Component {
   onClickSignIn = () => {
     this.props.history.push('/sign-in');
@@ -17,12 +17,7 @@ class NavBar extends React.Component {
     return (
       <div className="sticky-header">
         <div className="">
-          <nav
-            className="navbar navbar-expand-lg"
-            style={{
-              background: '#7b00f3'
-            }}
-          >
+          <nav className="navbar navbar-expand-lg">
             <a className="navbar-brand" href="/">
               <img src={LogoImg} alt="WammoLogo" />
             </a>
@@ -48,10 +43,16 @@ class NavBar extends React.Component {
               <ul className="nav">
                 <li className="nav-item">
                   <div className="btn-group">
-                    <button className="btn " onClick={this.onClickSignIn}>
+                    <button
+                      className="btn btn-outline-danger"
+                      onClick={this.onClickSignIn}
+                    >
                       Sign In
                     </button>
-                    <button className="btn" onClick={this.onClickSignUp}>
+                    <button
+                      className="btn btn-outline-success"
+                      onClick={this.onClickSignUp}
+                    >
                       Sign Up
                     </button>
                   </div>

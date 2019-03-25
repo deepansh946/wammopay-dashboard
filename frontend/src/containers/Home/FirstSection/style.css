@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 753px;
+  top: 0px;
 }
 .img-section {
   width: 100%;
@@ -16,13 +17,7 @@
   width: 100%;
   position: relative;
   float: left;
-  top: 80px;
-}
-.absoluteContent {
-  width: 100%;
-  position: relative;
-  float: left;
-  margin-top: 120px !important;
+  top: 305px;
 }
 .content-section {
   width: 100%;
@@ -37,24 +32,15 @@
 .content-section > p {
   color: #ffffff;
   font-size: 16px;
-  margin-top: 25px;
-  padding: 8px;
   opacity: 0.8;
   font-family: 'Poppins', sans-serif;
 }
-.button-section {
-  width: 100%;
-  position: relative;
-  float: left;
-  display: flex;
-  justify-content: flex-start;
-  font-family: 'Poppins', sans-serif;
-}
+
 .custom-button2 {
   background: #fff !important;
   border-radius: 20px !important;
   color: #000 !important;
-  margin-left: 15px !important;
+  margin-left: 15px;
   border: none !important;
   text-align: center !important;
   font-size: 14px !important;
@@ -77,19 +63,33 @@
   box-shadow: none !important;
   border: none !important;
 }
-@media (max-width: 480px) {
-  .absoluteContent {
-    margin-top: 80px !important;
-  }
-  .content-section > h1 {
-    font-size: 40px !important;
+@media (min-width: 320px) and (max-width: 480px) {
+  .Custom-Wrapper {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 125px !important;
   }
 }
-@media (max-width: 768px) {
-  .absoluteContent {
-    margin-top: 80px !important;
+@media (min-width: 481px) and (max-width: 767px) {
+  .Custom-Wrapper {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 150px !important;
   }
-  .content-section > h1 {
-    font-size: 40px !important;
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .Custom-Wrapper {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 200px !important;
+  }
+  .img-section {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 100px;
   }
 }

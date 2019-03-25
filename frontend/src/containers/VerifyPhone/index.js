@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,7 +22,9 @@ class VerifyPhone extends Component {
     value4: '',
     value5: '',
     value6: '',
-    tick: false
+    tick: false,
+    phone: '',
+    modal: false
   };
 
   onChangeValue1 = e => {
@@ -45,6 +49,10 @@ class VerifyPhone extends Component {
 
   onChangeValue6 = e => {
     this.setState({ value6: e.target.value });
+  };
+
+  onChangePhone = e => {
+    this.setState({ phone: e.target.value });
   };
 
   onClickSpan = e => {
@@ -81,8 +89,50 @@ class VerifyPhone extends Component {
       });
   };
 
+  toggle = () => {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  };
+
+  sendCode = () => {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+
+    const { phone } = this.state;
+
+    Axios({
+      url: `https://api.wammopay.com/api/Account/GetTWACode/${phone}/phone`,
+      method: 'GET'
+    })
+      .then(res => {
+        console.log(res.data);
+
+        const { value1, value2, value3, value4, value5, value6 } = this.state;
+
+        const temp = value1 + value2 + value3 + value4 + value5 + value6 + '';
+
+        Axios({
+          url: `https://api.wammopay.com/api/Account/GetTWAToken/${phone}/phone/${temp}`,
+          method: 'GET'
+        })
+          .then(res => {
+            console.log(res.data);
+            alert('Phone Verification Done');
+            this.props.history.push('/dashboard');
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
-    const { tick } = this.state;
+    const { tick, phone } = this.state;
 
     return (
       <div className="wrapper wrapper-content--- overflow-hidden">
@@ -181,6 +231,52 @@ class VerifyPhone extends Component {
                 </div>
               </div>
             </form>
+
+            <div className="not-account text-center">
+              I didn't receive a code?
+              <a
+                onClick={this.toggle}
+                style={{
+                  cursor: 'pointer'
+                }}
+              >
+                Resend Code
+              </a>
+            </div>
+
+            <Modal
+              isOpen={this.state.modal}
+              toggle={this.toggle}
+              className={this.props.className}
+            >
+              {/* <ModalHeader toggle={this.toggle}>Resend Email Code</ModalHeader> */}
+              <ModalBody>
+                <div className="row mb-20">
+                  <div className="col-xl-6 col-md-6 col-sm-12">
+                    <div className="row form-r">
+                      <div className="col-md-4">
+                        <label>Email</label>
+                      </div>
+                      <div className="col-md-8">
+                        <input
+                          type="text"
+                          className="form"
+                          name="phone"
+                          value={phone}
+                          placeholder="Enter the Phone Number"
+                          onChange={this.onChangePhone}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="secondary" onClick={this.sendCode}>
+                  Send Code
+                </Button>
+              </ModalFooter>
+            </Modal>
           </div>
         </div>
       </div>

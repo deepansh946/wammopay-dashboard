@@ -9,8 +9,7 @@ export default class Developers extends React.Component {
         <div className="Custom-Wrapper3">
           <div className="container">
             <div className="row">
-              <div className="col-md-1" />
-              <div className="col-md-3">
+              <div className="col-md-4">
                 <div className="content-section2">
                   <h1>
                     Toolkit

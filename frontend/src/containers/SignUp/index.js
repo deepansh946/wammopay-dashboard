@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
+import countryCodes from './countryCodes';
 import './styles.css';
+
 
 class SignUp extends Component {
   constructor(props) {
@@ -18,14 +20,9 @@ class SignUp extends Component {
       cPassword: '',
       isLogin: false,
       countryCode: '+93',
-      selectedRole: 'Role',
       value: 0
     };
   }
-
-  onChangeRole = e => {
-    this.setState({ selectedRole: e.target.value });
-  };
 
   onChangeCode = e => {
     this.setState({ countryCode: e.target.value });
@@ -61,42 +58,40 @@ class SignUp extends Component {
       mobileNumber,
       password,
       countryCode,
-      cPassword,
-      selectedRole
     } = this.state;
+
     console.log(
       email,
+      password,
       fullName,
       countryCode + mobileNumber,
-      password,
-      cPassword,
-      selectedRole
     );
+
+    const url = 'https://api.wammopay.com/api/Account/Register';
+
     Axios({
       method: 'POST',
-      url: '/api/users/',
+      url: url,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       data: {
-        email,
-        fullName,
-        mobileNumber: countryCode + mobileNumber,
-        password,
-        role: selectedRole
+        Email: email,
+        FullName: fullName,
+        PhoneNumber: countryCode + mobileNumber,
+        Password: password,
+        ConfirmPassword: password,
       }
     })
       .then(res => {
         console.log(res.data);
-        const { statusCode } = res.data;
-        if (statusCode === 200) {
-          // this.setState({ isLogin: true });
-          alert('You are registered. Please login to continue');
-          this.props.history.push('/sign-in');
-        } else {
-          alert('User Registration Failed. Please try again');
-        }
+
+        alert('Sign Up Successfull');
+        this.props.history.push('/sign-in');
       })
       .catch(err => {
         console.log(err);
-        alert(err);
+        // alert(err);
       });
   };
 
@@ -107,7 +102,6 @@ class SignUp extends Component {
       mobileNumber,
       password,
       countryCode,
-      selectedRole,
       cPassword,
       value
     } = this.state;
@@ -142,24 +136,7 @@ class SignUp extends Component {
                   value={fullName}
                 />
               </div>
-              <div className="input-container role">
-                <label htmlFor="role">Role</label>
-                <select
-                  className={'dropdown'}
-                  onChange={this.onChangeRole}
-                  value={selectedRole}
-                >
-                  <option key="User" value="User">
-                    {'User'}
-                  </option>
-                  <option key="Developer" value="Developer">
-                    {'Developer'}
-                  </option>
-                  <option key="Analyst" value="Analyst">
-                    {'Analyst'}
-                  </option>
-                </select>
-              </div>
+              
               <div className="input-container">
                 <label htmlFor="countryCode">Country Code</label>
                 <select

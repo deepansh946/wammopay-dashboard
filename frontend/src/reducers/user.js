@@ -8,6 +8,7 @@ export const initialState = {
   statusCode: 404,
   isError: false,
   error: '',
+  isFetching: false,
 
   message: '',
   isSignedIn: false
@@ -24,34 +25,32 @@ export default function reducer(state, action) {
         ...state
       };
     }
+
     case SIGN_IN: {
       const { payload } = action;
       //   console.log(payload);
-      const { id, email, username, phoneNumber, role } = payload;
+      const { email, phoneNumber } = payload;
       //   console.log('Reducer Called');
 
       cookieWrite('isSignedIn', true);
       cookieWrite('email', email);
-      cookieWrite('username', username);
       cookieWrite('phoneNumber', phoneNumber);
-      cookieWrite('role', role);
-      cookieWrite('id', id);
 
       return {
         ...state,
         isSignedIn: true,
         email,
-        username,
-        phoneNumber,
-        role
+        phoneNumber
       };
     }
+
     case SIGN_OUT: {
       cookieRemoveAll();
       localStoreRemove('token');
 
       return initialState;
     }
+
     default:
       return initialState;
   }

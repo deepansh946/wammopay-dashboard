@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
-import { actionSignOut } from '../../actions/index';
+import { actionSignOut, actionSignOn } from '../../actions/index';
 import Footer from '../../components/Footer';
 import readLocalStore from '../../browser/localStoreRead';
 
@@ -63,7 +63,42 @@ class Dashboard extends Component {
     });
   };
 
+  generateToken() {
+    Axios({
+      method: 'POST',
+      url: 'https://api.wammopay.com/Token',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: `grant_type=password&username=deepansh940@gmail.com&password=111@aaaA`
+    })
+      .then(res => {
+        // console.log(res.data);
+
+        const token = res.data;
+
+        console.log(token);
+
+        this.props.actionSignOn({ token });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   componentWillMount() {
+    const key = {
+      access_token:
+        'AXGs_mmERacLbpyICO2McwhWRDI629nvXj81Yh2fv2AAbceDC7-052LXIZh4QbzfFintX-W0rZXs6Of7LGnNgi15O6raA4qlYNid0Lf6hERcRQcLUJqHBXcsDT_fSBCje9gKNXwV_peSqMUsWI5t2ynNyswLEkwKcp_3Zj02-3G9isa5GBBOL1RKkm7gzqoz0pw2Fpwnk_B7zewne2JbX3XPQdUOAwRqrVnAEO1i-4DDhAkHFVhgZHr0fduNXfBAeohXBtBm5JaTuYIYpoDf5cSg0_vMXuYKiDWhaVw15TKq_KFcvPvK_8-jyqCwahER2vdLX8DPBB7_An3Y68G0DEm19jnFFD0SgYn9Es78pOdHj3-2tEMocpjcKs0K0P9XWOs9zHTQhFnmcJWxtTT86zAmH7ftjCL_vTcQkA0oWSu9_XrhV0sQiVKQk_NVrvdCulPMmuWeoq95RqONIM7hFyV3FzKhYvVKMzGROH_VA5D-4xFgXrX3kWfN_OpQ8oph752iLzGPoASNBEKrMVKyww',
+      token_type: 'bearer',
+      expires_in: 1209599,
+      userName: 'deepansh940@gmail.com',
+      '.issued': 'Sat, 16 Mar 2019 12:23:55 GMT',
+      '.expires': 'Sat, 30 Mar 2019 12:23:55 GMT'
+    };
+
+    this.props.actionSignOn({ token: key });
+
     const token = readLocalStore('token');
 
     const { access_token } = token.token;
@@ -758,7 +793,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      actionSignOut
+      actionSignOut,
+      actionSignOn
     },
     dispatch
   );

@@ -11,48 +11,50 @@ export default class FourStep extends React.Component {
       <div id="Fifth-Section">
         <div className="Custom-Wrapper5">
           <div className="container">
-            <div className="absoluteContent5">
-              <h4>Get Started in 4 steps</h4>
-              <div className="row">
-                <div className="col-md-3">
-                  <div className="services1-section text-center">
-                    <img src={step1} alt="Step1" className="img-fluid" />
-                    <h6>Lorem ipsum</h6>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do{' '}
-                    </p>
-                  </div>
+            <h4>Get Started in 4 steps</h4>
+            <div className="row">
+              <div className="col-md-3">
+                <div className="services1-section text-center">
+                  <img src={step1} alt="Step1" className="img-fluid" />
+                  <h6>Lorem ipsum</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam,{' '}
+                  </p>
                 </div>
-                <div className="col-md-3">
-                  <div className="services1-section text-center">
-                    <img src={step2} alt="Step2" className="img-fluid" />
-                    <h6>Lorem ipsum</h6>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do{' '}
-                    </p>
-                  </div>
+              </div>
+              <div className="col-md-3">
+                <div className="services1-section text-center">
+                  <img src={step2} alt="Step2" className="img-fluid" />
+                  <h6>Lorem ipsum</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam,{' '}
+                  </p>
                 </div>
-                <div className="col-md-3">
-                  <div className="services1-section text-center">
-                    <img src={step3} alt="Step3" className="img-fluid" />
-                    <h6>Lorem ipsum</h6>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do{' '}
-                    </p>
-                  </div>
+              </div>
+              <div className="col-md-3">
+                <div className="services1-section text-center">
+                  <img src={step3} alt="Step3" className="img-fluid" />
+                  <h6>Lorem ipsum</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam,{' '}
+                  </p>
                 </div>
-                <div className="col-md-3">
-                  <div className="services1-section text-center">
-                    <img src={step4} alt="Step4" className="img-fluid" />
-                    <h6>Lorem ipsum</h6>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do{' '}
-                    </p>
-                  </div>
+              </div>
+              <div className="col-md-3">
+                <div className="services1-section text-center">
+                  <img src={step4} alt="Step4" className="img-fluid" />
+                  <h6>Lorem ipsum</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam,{' '}
+                  </p>
                 </div>
               </div>
             </div>

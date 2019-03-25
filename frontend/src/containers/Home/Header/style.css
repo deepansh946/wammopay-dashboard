@@ -1,7 +1,3 @@
-/* .nav {
-  ;
-} */
-
 .sticky-header {
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
@@ -11,27 +7,20 @@
   left: 0;
   top: 0;
   z-index: 1;
+  background: #5752f8;
 }
-
-.btn {
-  border: 1px solid #fff;
-}
-
 .active {
   border-bottom: 2px solid #ffffff;
 }
-
 .custom-Active > a {
   color: #ffffff;
   opacity: 0.7;
   font-family: 'Poppins', sans-serif;
 }
-
 .btn-outline-success {
   color: #ffffff !important;
   border-color: #ffffff !important;
 }
-
 .btn-outline-danger {
   color: #ffffff !important;
   border-color: #ffffff !important;

@@ -9,16 +9,6 @@ import { withRouter } from 'react-router';
 import { actionSignIn, actionSignOn } from '../../actions/index';
 
 import './style.css';
-import countryCodes from './countryCodes';
-
-const roles = [
-  'Administrator',
-  'Analyst',
-  'Client',
-  'Developer',
-  'SupportSpecialist',
-  'ViewOnly'
-];
 
 class SignIn extends Component {
   state = {
@@ -101,70 +91,46 @@ class SignIn extends Component {
   signIn(e) {
     e.preventDefault();
 
-    const {
-      email,
-      fullName,
-      mobileNumber,
-      password,
-      countryCode,
-      selectedRole
-    } = this.state;
+    const { email, password } = this.state;
 
-    console.log(
-      email,
-      password,
-      fullName,
-      countryCode + mobileNumber,
-      Array(selectedRole)
-    );
-
-    // Axios({
-    //   method: 'GET',
-    //   url: 'https://www.google.com'
-    // })
-    //   .then(res => {
-    //     console.log(res.data);
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
-
-    const url = 'https://api.wammopay.com/api/Account/Register';
+    console.log(email, password);
 
     Axios({
       method: 'POST',
-      url: url,
+      url: 'https://api.wammopay.com/Token',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
-      data: {
-        Email: email,
-        FullName: fullName,
-        PhoneNumber: countryCode + mobileNumber,
-        Password: password,
-        ConfirmPassword: password,
-        Roles: Array(selectedRole)
-      }
+      data: `grant_type=password&username=${email}&password=${password}`
     })
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
+
+        const token = res.data;
+
+        this.props.actionSignOn({ token });
+
+        const { access_token } = token;
+
+        alert('Sign In Successfull');
 
         Axios({
-          method: 'POST',
-          url: 'https://api.wammopay.com/Token',
+          url: 'https://api.wammopay.com/api/Account/UserInfo',
+          method: 'GET',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          data: `grant_type=password&username=${email}&password=${password}`
+            Authorization: `Bearer ${access_token}`
+          }
         })
           .then(res => {
-            // console.log(res.data);
+            const data = res.data;
 
-            const token = res.data;
+            console.log(data);
 
-            this.props.actionSignOn({ token });
-
-            this.props.history.push('/verify-email');
+            if (data['Code'] === 401) {
+              this.props.history.push('/verify-email');
+            } else {
+              this.props.history.push('/dashboard');
+            }
           })
           .catch(err => {
             console.log(err);
@@ -172,20 +138,11 @@ class SignIn extends Component {
       })
       .catch(err => {
         console.log(err);
-        // alert(err);
       });
   }
 
   render() {
-    const {
-      email,
-      fullName,
-      mobileNumber,
-      password,
-      countryCode,
-      selectedRole,
-      value
-    } = this.state;
+    const { email, password } = this.state;
 
     return (
       <div className="template-light">
@@ -222,58 +179,6 @@ class SignIn extends Component {
                   value={password}
                   onChange={this.onChangePassword}
                   required
-                />
-              </div>
-              <div className="input-container">
-                <label htmlFor="req">Full Name</label>
-                <input
-                  type="text"
-                  id="fName"
-                  required
-                  onChange={e => this.onChangeName(e)}
-                  value={fullName}
-                />
-              </div>
-              <div className="input-container role">
-                <label htmlFor="role">Role</label>
-                <select
-                  className={'dropdown'}
-                  onChange={this.onChangeRole}
-                  value={selectedRole}
-                >
-                  {roles.map(role => {
-                    return (
-                      <option key={role} value={role}>
-                        {role}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-              <div className="input-container">
-                <label htmlFor="countryCode">Country Code</label>
-                <select
-                  className={'dropdown'}
-                  onChange={this.onChangeCode}
-                  value={countryCode}
-                >
-                  {countryCodes.map(country => {
-                    return (
-                      <option key={country.name} value={country.dial_code}>{`${
-                        country.name
-                      } (${country.dial_code})`}</option>
-                    );
-                  })}
-                </select>
-              </div>
-              <div className="input-container">
-                <label htmlFor="req">Mobile Number</label>
-                <input
-                  type="number"
-                  id="mobile"
-                  required
-                  value={mobileNumber}
-                  onChange={e => this.onChangeNumber(e)}
                 />
               </div>
               <div className="input-container">

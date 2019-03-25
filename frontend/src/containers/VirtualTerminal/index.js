@@ -110,60 +110,8 @@ class VirtualTerminal extends Component {
                   <div className="row">
                     <div className="col-xl-12">
                       <div className="box box-info bg-boxshadow mb-30">
-                        {/*<div className="box-header mb-30">
-                          <h3>Order Details</h3>
-                        </div>*/}
-                        {/* <!-- Ibox Content --> */}
                         <div className="box-body">
                           <form className="order-form" method="" action="">
-                            {/* <div className="row">
-                              <div className="col-xl-6 col-md-6 col-sm-12">
-                                <div className="row form-r">
-                                  <div className="col-md-4">
-                                    <label>Product</label>
-                                  </div>
-                                  <div className="col-md-8">
-                                    <select name="select">
-                                      <option value="d">Select Product</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="col-xl-6 col-md-6 col-sm-12">
-                                <div className="row form-r">
-                                  <div className="col-md-4">
-                                    <label>Order Amount</label>
-                                  </div>
-                                  <div className="col-md-8">
-                                    <input
-                                      type="text"
-                                      className="form"
-                                      name=""
-                                      placeholder="$ 0.00"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="row mb-20">
-                              <div className="col-xl-12 col-md-12 col-sm-12">
-                                <div className="row form-r">
-                                  <div className="col-md-2">
-                                    <label>Order Note</label>
-                                  </div>
-                                  <div className="col-md-10">
-                                    <input
-                                      type="text"
-                                      className="form"
-                                      name=""
-                                      placeholder="Enter if any note you want to add"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-    */}
                             <h3 className="mb-30 mt-30">Card Details</h3>
                             <div className="row mb-20">
                               <div className="col-xl-6 col-md-6 col-sm-12">

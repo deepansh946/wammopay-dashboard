@@ -2,20 +2,17 @@
   width: 100%;
   float: left;
   position: relative;
-  top: 85px;
+  top: 0;
 }
 .Custom-Wrapper6 {
   width: 100%;
   float: left;
   position: relative;
-  margin-top: 50px;
+  top: 120px !important;
+  margin-bottom: 100px;
 }
-.absoluteContent6 {
-  width: 100%;
-  float: left;
-  position: relative;
-}
-.absoluteContent6 > h4 {
+
+.Custom-Wrapper6 > .container > h4 {
   color: #353346;
   font-size: 24px;
   text-align: center;
@@ -28,82 +25,209 @@
   position: relative;
   text-align: center;
   height: 370px;
-  padding: 5px;
-  margin-top: 20px;
   border: none !important;
   box-shadow: 0px 1px 5px 2px #8f82e6;
   opacity: 0.5;
-  margin-bottom: 30px;
 }
 .card > .semi-colon {
   width: 80px;
   height: 80px;
-  margin-top: -45px;
-  margin-left: 325px;
+  margin-top: -45px !important;
+  margin-left: 45% !important;
 }
 .card > p {
   float: left;
   position: relative;
-  margin-top: 0px;
-  padding: 60px;
+  font-size: 16px;
+  padding: 55px !important;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 .card > .avatar-img {
   width: 60px;
   height: 60px;
-  margin-left: 50px;
   float: left;
   position: relative;
   border-radius: 50%;
+  top: 0px !important;
+  margin-left: 20px !important;
 }
 .card > h5 {
   color: rgba(33, 38, 44, 1);
   font-size: 20px;
   float: left;
+  margin-top: -60px !important;
+  margin-left: 85px !important;
   text-align: left;
-  margin-left: 115px;
-  margin-top: -50px;
 }
 .card > h6 {
   color: rgba(33, 38, 44, 0.7);
   font-size: 16px;
   float: left;
+  margin-left: 85px !important;
   text-align: left;
-  margin-left: 115px;
 }
 .arrows {
   width: 100%;
   float: left;
-  position: relative;
   display: flex;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
   justify-content: center;
+  margin-top: 15px;
 }
 .arrows > .left-arrow {
   width: 24px;
   height: 18px;
+  position: relative;
   margin-right: 5px;
   float: left;
 }
 .arrows > .right-arrow {
   width: 74px;
   height: 18px;
+  position: relative;
   margin-left: 5px;
   float: left;
 }
-@media (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 480px) {
+  .Custom-Wrapper6 {
+    width: 100%;
+    float: left;
+    position: relative;
+    top: 150px !important;
+  }
   .card > .semi-colon {
-    margin-left: 190px !important;
+    width: 80px;
+    height: 80px;
+    margin-top: -45px !important;
+    margin-left: 40% !important;
+  }
+  .card > p {
+    float: left;
+    position: relative;
+    font-size: 16px;
+    padding: 17px !important;
+    margin-bottom: 10px !important;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
   }
   .card > .avatar-img {
-    margin-top: -50px !important;
+    width: 60px;
+    height: 60px;
+    float: left;
+    top: 0px !important;
+    margin-left: 20px !important;
+    position: relative;
+    border-radius: 50%;
+  }
+  .card > h5 {
+    color: rgba(33, 38, 44, 1);
+    font-size: 18px;
+    float: left;
+    margin-top: -55px !important;
+    margin-left: 85px !important;
+    text-align: left;
+  }
+  .card > h6 {
+    color: rgba(33, 38, 44, 0.7);
+    font-size: 14px;
+    margin-left: 85px !important;
+    float: left;
+    text-align: left;
   }
 }
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 767px) {
+  .Custom-Wrapper6 {
+    width: 100%;
+    float: left;
+    position: relative;
+    top: 150px !important;
+  }
   .card > .semi-colon {
-    margin-left: 190px !important;
+    width: 80px;
+    height: 80px;
+    margin-top: -45px !important;
+    margin-left: 45% !important;
+  }
+  .card > p {
+    float: left;
+    position: relative;
+    font-size: 16px;
+    padding: 25px !important;
+    margin-bottom: 20px !important;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
   }
   .card > .avatar-img {
-    margin-top: -50px !important;
+    width: 60px;
+    height: 60px;
+    top: 20px !important;
+    float: left;
+    margin-left: 20px !important;
+    position: relative;
+    border-radius: 50%;
+  }
+  .card > h5 {
+    color: rgba(33, 38, 44, 1);
+    font-size: 18px;
+    float: left;
+    margin-top: -20px !important;
+    margin-left: 85px !important;
+    text-align: left;
+  }
+  .card > h6 {
+    color: rgba(33, 38, 44, 0.7);
+    font-size: 14px;
+    margin-left: 85px !important;
+    float: left;
+    text-align: left;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .Custom-Wrapper6 {
+    width: 100%;
+    float: left;
+    position: relative;
+    top: 150px !important;
+  }
+  .card > .semi-colon {
+    width: 80px;
+    height: 80px;
+    margin-top: -45px !important;
+    margin-left: 45% !important;
+  }
+  .card > p {
+    float: left;
+    position: relative;
+    font-size: 16px;
+    padding: 25px !important;
+    margin-bottom: 20px !important;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  .card > .avatar-img {
+    width: 60px;
+    height: 60px;
+    top: 20px !important;
+    float: left;
+    margin-left: 20px !important;
+    position: relative;
+    border-radius: 50%;
+  }
+  .card > h5 {
+    color: rgba(33, 38, 44, 1);
+    font-size: 18px;
+    float: left;
+    margin-top: -20px !important;
+    margin-left: 85px !important;
+    text-align: left;
+  }
+  .card > h6 {
+    color: rgba(33, 38, 44, 0.7);
+    font-size: 14px;
+    margin-left: 85px !important;
+    float: left;
+    text-align: left;
   }
 }

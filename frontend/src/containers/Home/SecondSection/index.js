@@ -18,7 +18,8 @@ export default class Products extends React.Component {
                   <h6>Easy Setup</h6>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do{' '}
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam,{' '}
                   </p>
                 </div>
               </div>
@@ -32,7 +33,8 @@ export default class Products extends React.Component {
                   <h6>Advance Security</h6>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do{' '}
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam,{' '}
                   </p>
                 </div>
               </div>
@@ -42,7 +44,8 @@ export default class Products extends React.Component {
                   <h6>All-in-One Soloution</h6>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do{' '}
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam,{' '}
                   </p>
                 </div>
               </div>
@@ -52,7 +55,8 @@ export default class Products extends React.Component {
                   <h6>24/7 Support</h6>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do{' '}
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam,{' '}
                   </p>
                 </div>
               </div>

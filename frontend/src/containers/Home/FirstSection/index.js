@@ -10,34 +10,30 @@ export default class Banner extends React.Component {
         <Navbar />
         <div className="Custom-Wrapper">
           <div className="container">
-            <div className="absoluteContent">
-              <div className="row">
-                <div className="col-md-4">
-                  <div className="content-section">
-                    <h1>New standard in online payments</h1>
-                    <p>
-                      Wammo is the best software platform for running an
-                      internet business. We handle billions of dollars every
-                      year for forward-thinking businesses around the world.
-                    </p>
-                    <div className="button-section">
-                      <button className="btn btn-success custom-button">
-                        Explore the Stack
-                      </button>
-                      <button className="btn btn-success custom-button2">
-                        Create Account
-                      </button>
-                    </div>
-                  </div>
+            <div className="row">
+              <div className="col-md-6">
+                <div className="content-section">
+                  <h1>New standard in online payments</h1>
+                  <p>
+                    Wammo is the best software platform for running an internet
+                    business. We handle billions of dollars every year for
+                    forward-thinking businesses around the world.
+                  </p>
+                  <button className="btn btn-success custom-button">
+                    Explore the Stack
+                  </button>
+                  <button className="btn btn-success custom-button2">
+                    Create Account
+                  </button>
                 </div>
-                <div className="col-md-8">
-                  <div className="img-section">
-                    <img
-                      src={LaptopImage}
-                      alt="LaptopImage"
-                      className="img-fluid"
-                    />
-                  </div>
+              </div>
+              <div className="col-md-6">
+                <div className="img-section">
+                  <img
+                    src={LaptopImage}
+                    alt="LaptopImage"
+                    className="img-fluid"
+                  />
                 </div>
               </div>
             </div>

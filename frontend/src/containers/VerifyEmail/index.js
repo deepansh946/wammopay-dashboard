@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
+ 
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Axios from 'axios';
-import cookieRead from '../../browser/cookieRead';
 
 import './style.css';
 import readLocalStore from '../../browser/localStoreRead';
@@ -22,8 +23,8 @@ class VerifiyEmail extends Component {
     value5: '',
     value6: '',
     tick: false,
-    code: '',
-    msgBody: ''
+    email: '',
+    modal: false
   };
 
   onChangeValue1 = e => {
@@ -48,6 +49,10 @@ class VerifiyEmail extends Component {
 
   onChangeValue6 = e => {
     this.setState({ value6: e.target.value });
+  };
+
+  onChangeEmail = e => {
+    this.setState({ email: e.target.value });
   };
 
   onClickSpan = e => {
@@ -85,8 +90,50 @@ class VerifiyEmail extends Component {
       });
   };
 
+  toggle = () => {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  };
+
+  sendCode = () => {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+
+    const { email } = this.state;
+
+    Axios({
+      url: `https://api.wammopay.com/api/Account/GetTWACode/${email}/email`,
+      method: 'GET'
+    })
+      .then(res => {
+        console.log(res.data);
+
+        const { value1, value2, value3, value4, value5, value6 } = this.state;
+
+        const temp = value1 + value2 + value3 + value4 + value5 + value6 + '';
+
+        Axios({
+          url: `https://api.wammopay.com/api/Account/GetTWAToken/${email}/email/${temp}`,
+          method: 'GET'
+        })
+          .then(res => {
+            console.log(res.data);
+            alert('Email Verification Done');
+            this.props.history.push('/verify-phone');
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
-    const { tick } = this.state;
+    const { tick, email } = this.state;
 
     return (
       <div className="wrapper wrapper-content--- overflow-hidden">
@@ -94,7 +141,9 @@ class VerifiyEmail extends Component {
           <div className="wpay-logo text-center">
             <img src={'assets/img/core-img/wpay-logo.png'} alt="" />
           </div>
+
           {/* <!-- Card Area --> */}
+
           <div className="card-login-area">
             <h1 className="title text-center">
               <img src={'assets/img/core-img/verify.png'} alt="" />
@@ -184,6 +233,52 @@ class VerifiyEmail extends Component {
                 </div>
               </div>
             </form>
+
+            <div className="not-account text-center">
+              I didn't receive a code?
+              <a
+                onClick={this.toggle}
+                style={{
+                  cursor: 'pointer'
+                }}
+              >
+                Resend Code
+              </a>
+            </div>
+
+            <Modal
+              isOpen={this.state.modal}
+              toggle={this.toggle}
+              className={this.props.className}
+            >
+              {/* <ModalHeader toggle={this.toggle}>Resend Email Code</ModalHeader> */}
+              <ModalBody>
+                <div className="row mb-20">
+                  <div className="col-xl-6 col-md-6 col-sm-12">
+                    <div className="row form-r">
+                      <div className="col-md-4">
+                        <label>Email</label>
+                      </div>
+                      <div className="col-md-8">
+                        <input
+                          type="text"
+                          className="form"
+                          name="email"
+                          value={email}
+                          placeholder="Enter the Email"
+                          onChange={this.onChangeEmail}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="secondary" onClick={this.sendCode}>
+                  Send Code
+                </Button>
+              </ModalFooter>
+            </Modal>
           </div>
         </div>
       </div>

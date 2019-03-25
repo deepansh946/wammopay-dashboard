@@ -1,70 +1,77 @@
-#Third-Section{
-	width:100%;
-	position: relative;
-	float:left;
-	
+#Third-Section {
+  width: 100%;
+  position: relative;
+  float: left;
+  top: 0;
 }
-.img-section2{
-	width:100%;
-	position: relative;
-	float:left;
+.img-section2 {
+  width: 100%;
+  position: relative;
+  float: left;
 }
-.Custom-Wrapper3{
-	width:100%;
-	position: relative;
-	float:left;
-	top:80px;	
+.Custom-Wrapper3 {
+  width: 100%;
+  position: relative;
+  float: left;
+  top: 85px;
 }
-
-.content-section2{
-	width: 100%;
-	position: relative;
-	float: left;
-	padding-top:270px;
+.content-section2 {
+  width: 100%;
+  position: relative;
+  float: left;
+  top: 250px;
 }
-.content-section2>h1{
-	color:#353346;
-	font-size: 24px;
-	font-family: 'Poppins',sans-serif;
+.content-section2 > h1 {
+  color: #353346;
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
 }
-.content-section2>p{
-	color: #797784;
-	font-size: 16px;
-	
-	padding:8px;
-	opacity: 0.8;
-	font-family: 'Poppins',sans-serif;
+.content-section2 > p {
+  color: #797784;
+  font-size: 16px;
+  opacity: 0.8;
+  font-family: 'Poppins', sans-serif;
 }
 
-@media(max-width: 480px){
-	.content-section2{
-		padding-top: 0px!important;
-	}
-	.Custom-Wrapper3{
-		top:25px!important;
-	}
+@media (min-width: 320px) and (max-width: 480px) {
+  .Custom-Wrapper3 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 85px;
+  }
+  .content-section2 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 0px !important;
+  }
 }
-@media(max-width: 768px){
-	.content-section2{
-		padding-top: 0px!important;
-	}
-	.Custom-Wrapper3{
-		top:25px!important;
-	}
-	
+@media (min-width: 481px) and (max-width: 767px) {
+  .Custom-Wrapper3 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 85px;
+  }
+  .content-section2 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 0px !important;
+  }
 }
-@media(max-width: 992px){
-	.content-section2{
-		padding-top: 0px!important;
-	}
-	.Custom-Wrapper3{
-		top:25px!important;
-	}
-	.Custom-Wrapper3 {
-   
-    top: 0px!important;
+@media (min-width: 768px) and (max-width: 992px) {
+  .Custom-Wrapper3 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 85px;
+  }
+  .content-section2 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 75px !important;
+  }
 }
-}
-
-
-
