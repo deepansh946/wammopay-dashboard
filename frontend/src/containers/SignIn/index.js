@@ -126,18 +126,21 @@ class SignIn extends Component {
 
             console.log(data);
 
-            if (data['Code'] === 401) {
-              this.props.history.push('/verify-email');
-            } else {
-              this.props.history.push('/dashboard');
-            }
+            this.props.history.push('/dashboard');
           })
-          .catch(err => {
-            console.log(err);
+          .catch(error => {
+            const statusCode = error.response.status;
+            if (statusCode === 401) {
+              this.props.history.push('/verify-email');
+            }
           });
       })
-      .catch(err => {
-        console.log(err);
+      .catch(error => {
+        console.log(error.response);
+        const statusCode = error.response.status;
+        if (statusCode === 404) {
+          alert('User not found. Please sign up.');
+        }
       });
   }
 
@@ -205,22 +208,6 @@ class SignIn extends Component {
                 </button>
               </div>
 
-              <SocialButton
-                provider="facebook"
-                appId="799512287069582"
-                onLoginSuccess={this.handleSocialLogin}
-                onLoginFailure={this.handleSocialLoginFailure}
-              >
-                Login with Facebook
-              </SocialButton>
-              <SocialButton
-                provider="google"
-                appId="934398712916-12m9poigpmaa5aivk5gjfq4i882oqq8u.apps.googleusercontent.com"
-                onLoginSuccess={this.handleSocialLogin}
-                onLoginFailure={this.handleSocialLoginFailure}
-              >
-                Login with Google
-              </SocialButton>
               <div className="not-account mt-2">
                 Don't have an account? <a href="/sign-up">SignUp Here</a>
               </div>

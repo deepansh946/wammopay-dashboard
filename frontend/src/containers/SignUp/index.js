@@ -8,7 +8,6 @@ import { withRouter } from 'react-router';
 import countryCodes from './countryCodes';
 import './styles.css';
 
-
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -52,20 +51,9 @@ class SignUp extends Component {
   login = e => {
     e.preventDefault();
     // console.log('Login Called');
-    const {
-      email,
-      fullName,
-      mobileNumber,
-      password,
-      countryCode,
-    } = this.state;
+    const { email, fullName, mobileNumber, password, countryCode } = this.state;
 
-    console.log(
-      email,
-      password,
-      fullName,
-      countryCode + mobileNumber,
-    );
+    console.log(email, password, fullName, countryCode + mobileNumber);
 
     const url = 'https://api.wammopay.com/api/Account/Register';
 
@@ -80,7 +68,7 @@ class SignUp extends Component {
         FullName: fullName,
         PhoneNumber: countryCode + mobileNumber,
         Password: password,
-        ConfirmPassword: password,
+        ConfirmPassword: password
       }
     })
       .then(res => {
@@ -89,9 +77,10 @@ class SignUp extends Component {
         alert('Sign Up Successfull');
         this.props.history.push('/sign-in');
       })
-      .catch(err => {
-        console.log(err);
-        // alert(err);
+      .catch(error => {
+        console.log(error.response);
+        const res = error.response.data.Message;
+        alert(res);
       });
   };
 
@@ -136,7 +125,7 @@ class SignUp extends Component {
                   value={fullName}
                 />
               </div>
-              
+
               <div className="input-container">
                 <label htmlFor="countryCode">Country Code</label>
                 <select
