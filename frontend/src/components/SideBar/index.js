@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class SideBar extends Component {
   state = {};
@@ -6,7 +6,10 @@ class SideBar extends Component {
   render() {
     return (
       <div className="left-sidebar-area">
-        <div className="side-menu-area">
+        <div
+          style={{ position: "absolute", top: "75px" }}
+          className="side-menu-area"
+        >
           <ul className="sidebar-menu" data-widget="tree">
             <li className="menu-title mb-30 active">
               <a href="/">

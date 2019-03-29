@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { withRouter } from "react-router";
 
-import cookieRead from '../../browser/cookieRead';
+import cookieRead from "../../browser/cookieRead";
+import SideBar from "../../components/SideBar";
 
 import {
   faSignOutAlt,
@@ -12,23 +13,31 @@ import {
   faEnvelope,
   faCog,
   faLifeRing
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { actionSignOut } from '../../actions/index';
-import './style.css';
+import { actionSignOut } from "../../actions/index";
+import "./style.css";
 
 class Header extends Component {
-  state = {};
+  state = {
+    sideBar: false
+  };
 
   onSignOut = () => {
     this.props.actionSignOut();
-    this.props.history.push('/');
+    this.props.history.push("/");
   };
 
+  handleClick = () =>
+    this.setState(({ sideBar }) => ({
+      sideBar: !sideBar
+    }));
+
   render() {
-    const username = cookieRead('username');
-    const email = cookieRead('email');
+    const username = cookieRead("username");
+    const email = cookieRead("email");
+    const { sideBar } = this.state;
     return (
       <header className="matmin-header-area d-flex align-items-center justify-content-between header-wrapper">
         {/* <!-- Single Header Content --> */}
@@ -38,11 +47,11 @@ class Header extends Component {
             {/* <!-- Logo Area --> */}
             <div className="logo-area">
               <a href="index-1.html">
-                <img src={'assets/img/core-img/wpay-logo.png'} alt="" />
+                <img src={"assets/img/core-img/wpay-logo.png"} alt="" />
               </a>
             </div>
             {/* <!-- Trigger --> */}
-            <div className="top-trigger">
+            <div onClick={this.handleClick} className="top-trigger">
               <span /> <span /> <span />
             </div>
           </div>
@@ -68,6 +77,8 @@ class Header extends Component {
           </ul>
         </div>
 
+        {sideBar && <SideBar />}
+
         {/* <!-- Single Header Content --> */}
         <div className="single-header-content mr-15">
           <div className="user-meta-data d-flex align-items-center">
@@ -84,6 +95,7 @@ class Header extends Component {
                   <i className="pe-7s-bell" aria-hidden="true" />
                   <span className="active-status pulse" />
                 </button>
+
                 <div className="dropdown-menu dropdown-menu-right">
                   {/* <!-- Top Message Area --> */}
                   <div className="top-message-area">
@@ -170,7 +182,7 @@ class Header extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <img src={'assets/img/member-img/women.jpg'} alt="" />
+                  <img src={"assets/img/member-img/women.jpg"} alt="" />
                   <span className="welcome-user">{username}</span>
                 </button>
                 <div className="dropdown-menu dropdown-menu-right">
@@ -180,13 +192,14 @@ class Header extends Component {
                       className="user-intro bg-img d-flex align-items-center"
                       style={{
                         backgroundImage:
-                          'url(img/thumbnails-img/profile-bg.jpg)'
+                          "url(img/thumbnails-img/profile-bg.jpg)"
                       }}
                     >
                       {/* <!-- Thumb --> */}
                       <div className="profile--thumbnail">
-                        <img src={'assets/img/member-img/women.jpg'} alt="" />
+                        <img src={"assets/img/member-img/women.jpg"} alt="" />
                       </div>
+
                       {/* <!-- Profile Text --> */}
                       <div className="profile--text-details">
                         <h6>{username}</h6>
@@ -194,19 +207,19 @@ class Header extends Component {
                       </div>
                     </div>
                     <a href="#" className="dropdown-item">
-                      <FontAwesomeIcon icon={faUser} className={'icon'} />
+                      <FontAwesomeIcon icon={faUser} className={"icon"} />
                       My profile
                     </a>
                     <a href="#" className="dropdown-item">
-                      <FontAwesomeIcon icon={faEnvelope} className={'icon'} />
+                      <FontAwesomeIcon icon={faEnvelope} className={"icon"} />
                       Messages
                     </a>
                     <a href="/account-settings" className="dropdown-item">
-                      <FontAwesomeIcon icon={faCog} className={'icon'} />
+                      <FontAwesomeIcon icon={faCog} className={"icon"} />
                       Account settings
                     </a>
                     <a href="#" className="dropdown-item">
-                      <FontAwesomeIcon icon={faLifeRing} className={'icon'} />
+                      <FontAwesomeIcon icon={faLifeRing} className={"icon"} />
                       Support
                     </a>
                     <a
@@ -214,7 +227,7 @@ class Header extends Component {
                       className="dropdown-item"
                       onClick={this.onSignOut}
                     >
-                      <FontAwesomeIcon icon={faSignOutAlt} className={'icon'} />
+                      <FontAwesomeIcon icon={faSignOutAlt} className={"icon"} />
                       {/* <i className="pe-7s-back" aria-hidden="true" /> */}
                       Sign Out
                     </a>
