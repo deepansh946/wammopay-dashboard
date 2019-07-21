@@ -1,0 +1,136 @@
+#Fourth-Section {
+  width: 100%;
+  position: relative;
+  float: left;
+}
+.img-section3 {
+  width: 100%;
+  position: relative;
+  float: left;
+  top: 35px !important;
+}
+.Custom-Wrapper4 {
+  width: 100%;
+  position: relative;
+  float: left;
+  background-image: url('../Assets/lightpurplrback.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 687px;
+  top: 85px;
+}
+
+.content-section3 {
+  width: 100%;
+  position: relative;
+  float: left;
+  top: 225px !important;
+}
+.content-section3 > h1 {
+  color: #353346;
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+}
+.content-section3 > p {
+  color: #353346;
+  font-size: 16px;
+  opacity: 0.7;
+  font-family: 'Poppins', sans-serif;
+}
+.custom-button20 {
+  background: #5752f8 !important;
+  border-radius: 20px !important;
+  color: #fff !important;
+  box-shadow: #353346;
+  border: none !important;
+  text-align: center !important;
+  white-space: nowrap;
+  font-size: 14px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  font-family: 'Poppins', sans-serif;
+}
+.custom-button20:hover {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .img-section3 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 15px !important;
+  }
+  .Custom-Wrapper4 {
+    width: 100%;
+    position: relative;
+    float: left;
+    background-image: url('../Assets/lightpurplrback.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 687px;
+    top: 135px !important;
+  }
+
+  .content-section3 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 15px !important;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .img-section3 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 15px !important;
+  }
+  .Custom-Wrapper4 {
+    width: 100%;
+    position: relative;
+    float: left;
+    background-image: url('../Assets/lightpurplrback.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 687px;
+    top: 135px !important;
+  }
+
+  .content-section3 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 15px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .img-section3 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 85px !important;
+  }
+  .Custom-Wrapper4 {
+    width: 100%;
+    position: relative;
+    float: left;
+    background-image: url('../Assets/lightpurplrback.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 687px;
+    top: 100px !important;
+  }
+
+  .content-section3 {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 185px !important;
+  }
+}

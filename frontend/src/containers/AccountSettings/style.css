@@ -1,0 +1,27 @@
+.labelCss {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.role {
+  margin: 15px;
+}
+
+.role > button {
+  border-radius: 25px !important;
+}
+
+.add {
+  border: none;
+  margin: 15px;
+  border-radius: 25px !important;
+  font-size: 14px;
+}
+
+.addUser {
+  margin: 0px;
+}
+
+.all-roles {
+  margin-top: 10px;
+}

@@ -1,0 +1,95 @@
+#First-Section {
+  width: 100%;
+  position: relative;
+  float: left;
+  background-image: url(../Assets/headerbackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 753px;
+  top: 0px;
+}
+.img-section {
+  width: 100%;
+  position: relative;
+  float: left;
+}
+.Custom-Wrapper {
+  width: 100%;
+  position: relative;
+  float: left;
+  top: 305px;
+}
+.content-section {
+  width: 100%;
+  position: relative;
+  float: left;
+}
+.content-section > h1 {
+  color: #ffffff;
+  font-size: 57px;
+  font-family: 'Poppins', sans-serif;
+}
+.content-section > p {
+  color: #ffffff;
+  font-size: 16px;
+  opacity: 0.8;
+  font-family: 'Poppins', sans-serif;
+}
+
+.custom-button2 {
+  background: #fff !important;
+  border-radius: 20px !important;
+  color: #000 !important;
+  margin-left: 15px;
+  border: none !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+  white-space: nowrap;
+  cursor: pointer !important;
+}
+.custom-button {
+  background: rgba(46, 196, 165, 1) !important;
+  border-radius: 20px !important;
+  color: #fff !important;
+  border: none !important;
+  text-align: center !important;
+  white-space: nowrap;
+  font-size: 14px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+.custom-button:hover {
+  box-shadow: none !important;
+  border: none !important;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .Custom-Wrapper {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 125px !important;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .Custom-Wrapper {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 150px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .Custom-Wrapper {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 200px !important;
+  }
+  .img-section {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: 100px;
+  }
+}

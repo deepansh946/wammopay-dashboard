@@ -1,0 +1,7 @@
+.dropdown {
+  display: inline;
+}
+
+.input-container > .dropdown {
+  font-weight: 600;
+}
